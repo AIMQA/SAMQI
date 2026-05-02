@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Training & Case Studies — Society for Acute Medicine Quality Improvement resources for all AMU professions"/>
-<title>Training & Case Studies — SAM Quality Improvement</title>
+<meta name="description" content="SAM QI Toolkit — Society for Acute Medicine Quality Improvement resources for all AMU professions"/>
+<title>SAM QI Toolkit — SAM Quality Improvement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet"/>
@@ -1443,6 +1443,52 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
 </style>
 
 
+
+/* Download button + tool actions row */
+.tool-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.btn-download {
+  background: #ffffff;
+  color: var(--sam-green);
+  padding: 7px 16px;
+  border-radius: var(--radius);
+  font-size: .78rem;
+  font-weight: 700;
+  border: 2px solid var(--sam-green);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  text-decoration: none;
+  transition: background .2s, color .2s, transform .15s;
+}
+.btn-download:hover {
+  background: var(--sam-green);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.btn-download.dl-word    { border-color: #2B579A; color: #2B579A; }
+.btn-download.dl-word:hover    { background: #2B579A; color: #fff; }
+.btn-download.dl-excel   { border-color: #217346; color: #217346; }
+.btn-download.dl-excel:hover   { background: #217346; color: #fff; }
+.btn-download.dl-ppt     { border-color: #C43E1C; color: #C43E1C; }
+.btn-download.dl-ppt:hover     { background: #C43E1C; color: #fff; }
+.btn-download .dl-icon {
+  width: 16px; height: 16px; flex-shrink: 0;
+}
+.btn-download .dl-size {
+  font-size: .68rem;
+  font-weight: 600;
+  opacity: .7;
+  margin-left: 2px;
+}
+
 </style>
 </head>
 <body>
@@ -1561,8 +1607,8 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
     <a href="index.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/></svg><span>Overview</span></a>
     <a href="mdt.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg><span>Professions</span></a>
     <a href="methodology.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/></svg><span>Methodology</span></a>
-    <a href="tools.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z"/></svg><span>QI Tools</span></a>
-    <a href="training.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
+    <a href="tools.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z"/></svg><span>QI Tools</span></a>
+    <a href="training.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
     <a href="elearning.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>E-Learning</span></a>
     <a href="audits.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg><span>Audits</span></a>
     <a href="library.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>QIP Library</span></a>
@@ -1576,139 +1622,655 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
 
 <div class="page-layout">
 <main>
-<!-- ── TRAINING PROGRAMMES ───────────────────── -->
-<section id="programmes" class="sec">
+<!-- ── QI TOOLS ──────────────────────────────── -->
+<section id="tools" class="sec">
   <div class="sec-title">
-    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg></div>
-    SAM QI Training Programmes
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z" clip-rule="evenodd"/></svg></div>
+    QI Tools &amp; Templates
   </div>
-  <p class="sec-subtitle">Open to all AMU professions — SAM explicitly recruits multi-professional teams, not just individual doctors</p>
+  <p class="sec-subtitle">The SAM QI Toolkit — nine downloadable Word, Excel, and PowerPoint templates ready to use in your Acute Medicine improvement projects</p>
 
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-top-bar"></div>
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-      <h3>Acute Medics as Improvers</h3>
-      <p>A structured programme developed by the SAM-QI Committee specifically for acute medicine professionals. Delivered over four half-day facilitated sessions, with individual coaching in between each, so participants are applying new skills to a real project from day one. The current national cohort is working on eliminating corridor care — a problem most AMU teams encounter daily but struggle to address systematically.</p>
-      <p style="margin-top:10px;font-size:.78rem;color:var(--sam-muted)">
-        ⏱ 4 half-days + coaching &nbsp;·&nbsp; 🌐 Online / blended &nbsp;·&nbsp; 👥 Nurses, ACPs, AHPs, Pharmacists, PAs &amp; Doctors
-      </p>
-      <a href="https://www.acutemedicine.org.uk/sam-events/" class="card-link">View upcoming dates →</a>
-    </div>
-
-    <div class="card">
-      <div class="card-top-bar teal"></div>
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857"/></svg></div>
-      <h3>Acute Medics Leading Improvement</h3>
-      <p>Developed for those who have completed the core programme or have equivalent QI experience and are ready to lead transformation at a departmental or Trust level. The focus shifts from running a single project to building the conditions under which improvement becomes self-sustaining — working with clinical leads, service managers, and patient partners to embed change into the fabric of the AMU rather than depending on one individual.</p>
-      <p style="margin-top:10px;font-size:.78rem;color:var(--sam-muted)">
-        ⭐ All professions welcome &nbsp;·&nbsp; 📜 Portfolio &amp; revalidation evidence &nbsp;·&nbsp; 🔄 Cross-professional leadership
-      </p>
-      <a href="https://www.acutemedicine.org.uk/sam-events/" class="card-link">View upcoming dates →</a>
-    </div>
-  </div>
-
-  <div class="note-box">
-    📅 Full details and booking for both programmes are added to the <a href="https://www.acutemedicine.org.uk/sam-events/">SAM Events page</a> as dates are confirmed. SAM members receive priority booking and reduced rates.
-  </div>
-</section>
-
-<!-- ── CASE STUDIES ──────────────────────────── -->
-<section id="casestudies" class="sec">
-  <div class="sec-title">
-    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg></div>
-    QI Case Studies in Acute Medicine
-  </div>
-  <p class="sec-subtitle">Four examples showing how nurses, ACPs, pharmacists, and AHPs lead improvement — not just as team members, but as project leads</p>
-
-  <div class="grid-2">
-
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-green">SDEC</span>
-        <span class="badge b-acp">ACP-led</span>
+  <!-- Toolkit Banner -->
+  <div class="toolkit-banner">
+    <div class="toolkit-banner-left">
+      <div class="toolkit-logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4L28 27H4L16 4Z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+          <line x1="16" y1="15" x2="16" y2="22" stroke="#fff" stroke-width="2.4"/>
+          <circle cx="16" cy="25.5" r="1.5" fill="#fff"/>
+        </svg>
       </div>
-      <div class="case-body">
-        <h4>ACP-led SDEC pathway redesign reduces unnecessary admissions</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by an acute medicine ACP in collaboration with the AMU consultant team and ED senior charge nurse</p>
-        <p>An ACP-led multi-PDSA project redesigning the SDEC referral and streaming pathway — including a direct GP phone line triaged by the ACP team, standardised acceptance criteria, and a same-day discharge protocol co-developed with nursing. The ACP's position across the medical-nursing interface was central to making the pathway work in practice.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↓28%</span><small>ED attendance rate</small></div>
-          <div class="metric-box"><span class="mnum">62%</span><small>SDEC utilisation</small></div>
+      <div>
+        <h3>SAM QI Toolkit — Acute Medicine Edition</h3>
+        <p>Nine SAM-branded templates for all AMU professions. <strong>Download as Word, Excel, or PowerPoint</strong> — or expand any tool to preview and print from this page.</p>
+      </div>
+    </div>
+    <span class="toolkit-count">9 Templates · Word / Excel / PowerPoint · Print-ready</span>
+  </div>
+
+  <!-- ── TOOL 1: AIM Statement Canvas ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">1</span>
+        <div class="tc-meta">
+          <h4>AIM Statement Canvas</h4>
+          <span>Define a SMART aim before starting any QI project — required for QIPAT</span>
+        </div>
+        <span class="tc-badge">Project Start</span>
+        <span class="tc-arrow">▸</span>
+      </div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-aim">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">AIM Statement Canvas · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>
+            SAM QI Toolkit
+          </div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Project Title</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>AMU / Trust</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Date Started</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body">
+          <div class="aim-formula">
+            💡 SMART AIM formula: <em>"We will improve [WHAT] from [BASELINE] to [TARGET] in [POPULATION] at [SETTING] by [DATE]."</em>
+          </div>
+          <div class="aim-field">
+            <div class="aim-field-head">W — What will be improved? (the indicator)</div>
+            <div class="aim-field-body"><div class="write-line"></div><div class="write-line"></div></div>
+          </div>
+          <div class="aim-field">
+            <div class="aim-field-head">B — Baseline (current performance with source)</div>
+            <div class="aim-field-body"><div class="write-line"></div><div class="write-line"></div></div>
+          </div>
+          <div class="aim-field">
+            <div class="aim-field-head">T — Target (desired performance, evidence-based)</div>
+            <div class="aim-field-body"><div class="write-line"></div><div class="write-line"></div></div>
+          </div>
+          <div class="aim-field">
+            <div class="aim-field-head">P — Population / Setting (who, where)</div>
+            <div class="aim-field-body"><div class="write-line"></div><div class="write-line"></div></div>
+          </div>
+          <div class="aim-field">
+            <div class="aim-field-head">D — Date / Timeframe for achievement</div>
+            <div class="aim-field-body"><div class="write-line"></div></div>
+          </div>
+          <div class="aim-field" style="margin-bottom:0">
+            <div class="aim-field-head">Full AIM Statement (written out)</div>
+            <div class="aim-field-body"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 Society for Acute Medicine QI Toolkit · acutemedicine.org.uk/quality-improvement-2</p>
+          <div class="tool-actions"><a href="downloads/01-AIM-Statement-Canvas.docx" class="btn-download dl-word" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3.4 4.5l1.4 5.5h.1l1.1-4 1.1 4h.1l1.4-5.5h1.6l-2.2 8h-1.4l-1.05-3.8L8.85 15.5H7.4l-2.2-8H7.4z"/></svg>Download Word <span class="dl-size">(12 KB)</span></a><button class="btn-print" onclick="window.print()">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>
+            Print Template
+          </button></div>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 North-West AMU · 2023</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med J ↗</a>
-      </div>
     </div>
+  </details>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-red">Sepsis</span>
-        <span class="badge b-nurse">Nursing-led</span>
+  <!-- ── TOOL 2: PDSA Worksheet ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">2</span>
+        <div class="tc-meta">
+          <h4>PDSA Cycle Worksheet</h4>
+          <span>Document each test of change — required for QIPAT sign-off at ARCP</span>
+        </div>
+        <span class="tc-badge">Cycle Testing</span>
+        <span class="tc-arrow">▸</span>
       </div>
-      <div class="case-body">
-        <h4>Nursing-led Sepsis Grab Bag initiative — point-of-care bundle completion</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Designed and led by Band 7 ward nurse with clinical sponsor support from the AMU consultant and pharmacy input for the PGD</p>
-        <p>A Band 7 nurse-initiated project placing pre-assembled Sepsis Grab Bags at the point of care, backed by a nurse-delivered competency programme covering phlebotomy, IV cannulation, and PGD for IV fluids. The nursing team owned both the design and the training — the consultant's role was clinical sponsorship and QIPAT sign-off rather than project leadership. Run charts showed compliance rising from 34% to 81%.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">81%</span><small>Sepsis 6 compliance</small></div>
-          <div class="metric-box"><span class="mnum">↓40min</span><small>Time to antibiotic</small></div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-pdsa">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">PDSA Cycle Worksheet · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>
+            SAM QI Toolkit
+          </div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Project</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Cycle Number</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Cycle Date</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body" style="padding:0">
+          <div class="pdsa-grid-tpl">
+            <div class="pdsa-cell">
+              <div class="pdsa-cell-head"><span class="pdsa-letter pl-plan">P</span><strong>PLAN — Objective &amp; Prediction</strong></div>
+              <div style="font-size:.68rem;color:var(--sam-muted);margin-bottom:8px">What will you test? Who, what, where, when? What do you predict will happen?</div>
+              <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+            </div>
+            <div class="pdsa-cell">
+              <div class="pdsa-cell-head"><span class="pdsa-letter pl-do">D</span><strong>DO — Carry Out the Test</strong></div>
+              <div style="font-size:.68rem;color:var(--sam-muted);margin-bottom:8px">What happened? Record observations, problems encountered, data collected.</div>
+              <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+            </div>
+            <div class="pdsa-cell">
+              <div class="pdsa-cell-head"><span class="pdsa-letter pl-study">S</span><strong>STUDY — Analyse &amp; Reflect</strong></div>
+              <div style="font-size:.68rem;color:var(--sam-muted);margin-bottom:8px">Compare results to predictions. What did the data show? What was learned?</div>
+              <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+            </div>
+            <div class="pdsa-cell">
+              <div class="pdsa-cell-head"><span class="pdsa-letter pl-act">A</span><strong>ACT — Next Steps</strong></div>
+              <div style="font-size:.68rem;color:var(--sam-muted);margin-bottom:8px">Adopt ☐ &nbsp; Adapt ☐ &nbsp; Abandon ☐ &nbsp;— Plan next cycle:</div>
+              <div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div>
+            </div>
+          </div>
+          <div style="padding:10px 14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;border-top:1px solid #c5e0d4">
+            <div class="sam-meta-field"><label>Outcome measure value (this cycle)</label><div class="field-line"></div></div>
+            <div class="sam-meta-field"><label>Signatures (QI Lead / Supervisor)</label><div class="field-line"></div></div>
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 Society for Acute Medicine QI Toolkit · One worksheet per PDSA cycle · Align with SQUIRE 2.0 Item 13a</p>
+          <div class="tool-actions"><a href="downloads/02-PDSA-Cycle-Worksheet.docx" class="btn-download dl-word" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3.4 4.5l1.4 5.5h.1l1.1-4 1.1 4h.1l1.4-5.5h1.6l-2.2 8h-1.4l-1.05-3.8L8.85 15.5H7.4l-2.2-8H7.4z"/></svg>Download Word <span class="dl-size">(12 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Template</button></div>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 UHB THINK SEPSIS · Midlands</span>
-        <a href="https://www.acutemedicine.org.uk/samba-new/">SAMBA data ↗</a>
-      </div>
     </div>
+  </details>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-pharm">Pharmacy-led</span>
-        <span class="badge b-green">Safety</span>
+  <!-- ── TOOL 3: Run Chart Template ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">3</span>
+        <div class="tc-meta">
+          <h4>Run Chart Template</h4>
+          <span>Plot your outcome/process measure over time with PDSA cycle annotations</span>
+        </div>
+        <span class="tc-badge">Measurement</span>
+        <span class="tc-arrow">▸</span>
       </div>
-      <div class="case-body">
-        <h4>Pharmacist-led medicines reconciliation within 24 hours of admission</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by the AMU clinical pharmacist team with nursing support for data collection and junior doctor engagement for prescribing changes</p>
-        <p>A clinical pharmacist-initiated project addressing medicines reconciliation failures on admission. Three PDSA cycles tested different models for pharmacy review timing and documentation, working with nursing staff who identified the practical barriers during ward rounds. Run charts showed reconciliation within 24 hours improving from 41% to 88%, with a measurable reduction in prescribing discrepancies.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↑88%</span><small>Reconciliation within 24h</small></div>
-          <div class="metric-box"><span class="mnum">↓62%</span><small>Prescribing discrepancies</small></div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-runchart">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">Run Chart Template · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Indicator / Measure</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Numerator / Denominator</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Data Collection Period</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body">
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:12px">
+            <div style="flex:1">
+              <div style="font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sam-green);margin-bottom:4px">Y-Axis — Measure (%) / Value</div>
+              <div style="display:flex;gap:8px;align-items:flex-end;height:220px">
+                <div style="display:flex;flex-direction:column;justify-content:space-between;height:100%;text-align:right;font-size:.58rem;color:var(--sam-muted);padding-right:4px;padding-bottom:8px">
+                  <span>100%</span><span>80%</span><span>60%</span><span>40%</span><span>20%</span><span>0%</span>
+                </div>
+                <div style="flex:1;position:relative">
+                  <div class="rct-grid">
+                    <div class="rct-median"><span class="rct-median-label">Median</span></div>
+                    <div class="rct-pdsa-markers">
+                      <div class="rct-pdsa-m"><span class="pdsa-label">Baseline</span></div>
+                      <div class="rct-pdsa-m"><span class="pdsa-label">PDSA 1 ↓</span></div>
+                      <div class="rct-pdsa-m"><span class="pdsa-label">PDSA 2 ↓</span></div>
+                      <div class="rct-pdsa-m"><span class="pdsa-label">PDSA 3 ↓</span></div>
+                      <div class="rct-pdsa-m"></div>
+                    </div>
+                  </div>
+                  <div class="rct-x-ticks">
+                    <div class="rct-tick">W1</div><div class="rct-tick">W2</div><div class="rct-tick">W3</div>
+                    <div class="rct-tick">W4</div><div class="rct-tick">W5</div><div class="rct-tick">W6</div>
+                    <div class="rct-tick">W7</div><div class="rct-tick">W8</div><div class="rct-tick">W9</div>
+                    <div class="rct-tick">W10</div><div class="rct-tick">W11</div><div class="rct-tick">W12</div>
+                  </div>
+                  <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sam-green);text-align:center;margin-top:4px">X-Axis — Time (weeks / months)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="background:var(--sam-green-light);border:1px solid #c5e0d4;border-radius:4px;padding:10px 14px;font-size:.72rem;color:#1a5230">
+            <strong>NHS Making Data Count rules for a signal of improvement on a run chart:</strong><br>
+            (a) Shift: 6+ consecutive data points all above or all below the median &nbsp;|&nbsp;
+            (b) Trend: 5+ consecutive points all going up or all going down &nbsp;|&nbsp;
+            (c) Astronomical data point: one unusually high or low point &nbsp;|&nbsp;
+            Annotate each PDSA cycle start date on the X-axis with a vertical dashed line.
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 SAM QI Toolkit · Ref: NHS Making Data Count (NHSE/I) · Aligns with SQUIRE 2.0 Items 11b and 13b</p>
+          <div class="tool-actions"><a href="downloads/03-Run-Chart-Template.xlsx" class="btn-download dl-excel" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm2 4h2.2l1.3 2.5L10.8 7H13l-2.2 4 2.3 4.5h-2.2l-1.4-2.7-1.4 2.7H6l2.3-4.5L6 7z"/></svg>Download Excel <span class="dl-size">(13 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Template</button></div>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 East Midlands AMU · 2023</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med Journal ↗</a>
-      </div>
     </div>
+  </details>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-teal">Frailty</span>
-        <span class="badge b-ahp">AHP-led</span>
+  <!-- ── TOOL 4: Driver Diagram ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">4</span>
+        <div class="tc-meta">
+          <h4>Driver Diagram Template</h4>
+          <span>Link your AIM to primary drivers, secondary drivers, and specific change ideas</span>
+        </div>
+        <span class="tc-badge">Project Planning</span>
+        <span class="tc-arrow">▸</span>
       </div>
-      <div class="case-body">
-        <h4>OT-led early functional assessment reducing avoidable AMU length of stay</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by the AMU occupational therapy team in collaboration with physiotherapy, acute medicine, and social work — with patient co-design throughout</p>
-        <p>An OT-initiated project implementing structured functional assessment within four hours of admission for all patients over 75 — triggering earlier therapy input, social work referral, and discharge planning conversations. The team co-designed the screening tool with six patients during testing. The project demonstrated that AHP-initiated improvement directly reduces medical LOS, not just therapy waits.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↓1.4d</span><small>Mean LOS (75+)</small></div>
-          <div class="metric-box"><span class="mnum">↑81%</span><small>Assessment within 4h</small></div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-driver">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">Driver Diagram Template · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Project / AIM</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Lead</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Date</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body">
+          <div class="dd-tpl">
+            <!-- AIM -->
+            <div class="dd-aim-box">SMART AIM Statement<br><br><div class="write-line" style="border-color:rgba(255,255,255,.3)"></div><div class="write-line" style="border-color:rgba(255,255,255,.3);margin-top:6px"></div></div>
+            <!-- Primary Drivers -->
+            <div class="dd-drivers">
+              <div class="dd-primary">
+                <div class="dd-label">Primary Driver 1</div>
+                <div class="dd-line"></div><div class="dd-line"></div>
+              </div>
+              <div class="dd-primary">
+                <div class="dd-label">Primary Driver 2</div>
+                <div class="dd-line"></div><div class="dd-line"></div>
+              </div>
+              <div class="dd-primary">
+                <div class="dd-label">Primary Driver 3</div>
+                <div class="dd-line"></div><div class="dd-line"></div>
+              </div>
+            </div>
+            <!-- Secondary Drivers / Change Ideas -->
+            <div class="dd-secondary">
+              <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sam-blue);margin-bottom:4px">Secondary Drivers &amp; Change Ideas</div>
+              <div class="dd-change"><div class="dd-line"></div><div class="dd-line"></div></div>
+              <div class="dd-change"><div class="dd-line"></div><div class="dd-line"></div></div>
+              <div class="dd-change"><div class="dd-line"></div><div class="dd-line"></div></div>
+              <div class="dd-change"><div class="dd-line"></div><div class="dd-line"></div></div>
+              <div class="dd-change"><div class="dd-line"></div><div class="dd-line"></div></div>
+              <div class="dd-change"><div class="dd-line"></div><div class="dd-line"></div></div>
+            </div>
+          </div>
+          <div style="margin-top:12px;background:var(--sam-green-light);border-left:3px solid var(--sam-green);padding:8px 12px;font-size:.71rem;color:#1a5230;border-radius:0 4px 4px 0">
+            💡 Primary drivers are the key factors that must change to achieve the AIM. Secondary drivers are more specific sub-factors. Change ideas are specific tests to run via PDSA cycles. Aligns with SQUIRE 2.0 Item 5 (Rationale).
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 SAM QI Toolkit · Driver Diagram · Aligns with SQUIRE 2.0 Item 5 (Rationale) and QIPAT evidence</p>
+          <div class="tool-actions"><a href="downloads/04-Driver-Diagram-Template.pptx" class="btn-download dl-ppt" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 4h3.5a2.75 2.75 0 010 5.5H8.5V15.5H7V7zm1.5 1.4v2.7h2a1.35 1.35 0 000-2.7h-2z"/></svg>Download PowerPoint <span class="dl-size">(32 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Template</button></div>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 Yorkshire AMU · 2024</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med Journal ↗</a>
+    </div>
+  </details>
+
+  <!-- ── TOOL 5: Fishbone / Ishikawa ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">5</span>
+        <div class="tc-meta">
+          <h4>Fishbone (Ishikawa) Diagram</h4>
+          <span>Root cause analysis across the 6Ms — People, Process, Environment, Equipment, Measurement, Management</span>
+        </div>
+        <span class="tc-badge">Root Cause Analysis</span>
+        <span class="tc-arrow">▸</span>
+      </div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-fishbone">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">Fishbone / Ishikawa Diagram · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Problem Statement (Effect)</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Facilitator</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Date</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body">
+          <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto">
+            <!-- Spine -->
+            <line x1="40" y1="150" x2="570" y2="150" stroke="#036d3a" stroke-width="3"/>
+            <!-- Arrow head -->
+            <polygon points="570,150 555,143 555,157" fill="#036d3a"/>
+            <!-- Effect box -->
+            <rect x="572" y="120" width="100" height="60" rx="4" fill="#036d3a"/>
+            <text x="622" y="145" text-anchor="middle" font-family="Mukta,sans-serif" font-size="10" font-weight="700" fill="white">PROBLEM</text>
+            <text x="622" y="160" text-anchor="middle" font-family="Mukta,sans-serif" font-size="8.5" fill="rgba(255,255,255,.75)">(Effect)</text>
+            <!-- Top branches: People, Process, Environment -->
+            <!-- People -->
+            <line x1="120" y1="150" x2="160" y2="80" stroke="#036d3a" stroke-width="1.8"/>
+            <rect x="100" y="58" width="80" height="26" rx="3" fill="#e8f5ee" stroke="#2f7653" stroke-width="1.2"/>
+            <text x="140" y="75" text-anchor="middle" font-family="Mukta,sans-serif" font-size="9.5" font-weight="700" fill="#036d3a">People</text>
+            <line x1="140" y1="84" x2="128" y2="110" stroke="#9fcdb5" stroke-width="1.2"/><text x="125" y="108" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <line x1="145" y1="84" x2="133" y2="126" stroke="#9fcdb5" stroke-width="1.2"/><text x="130" y="124" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <!-- Process -->
+            <line x1="270" y1="150" x2="300" y2="80" stroke="#036d3a" stroke-width="1.8"/>
+            <rect x="260" y="58" width="82" height="26" rx="3" fill="#e8f5ee" stroke="#2f7653" stroke-width="1.2"/>
+            <text x="301" y="75" text-anchor="middle" font-family="Mukta,sans-serif" font-size="9.5" font-weight="700" fill="#036d3a">Process</text>
+            <line x1="295" y1="84" x2="283" y2="110" stroke="#9fcdb5" stroke-width="1.2"/><text x="280" y="108" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <line x1="305" y1="84" x2="293" y2="126" stroke="#9fcdb5" stroke-width="1.2"/><text x="290" y="124" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <!-- Environment -->
+            <line x1="440" y1="150" x2="460" y2="80" stroke="#036d3a" stroke-width="1.8"/>
+            <rect x="426" y="58" width="102" height="26" rx="3" fill="#e8f5ee" stroke="#2f7653" stroke-width="1.2"/>
+            <text x="477" y="75" text-anchor="middle" font-family="Mukta,sans-serif" font-size="9.5" font-weight="700" fill="#036d3a">Environment</text>
+            <line x1="460" y1="84" x2="448" y2="110" stroke="#9fcdb5" stroke-width="1.2"/><text x="445" y="108" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <line x1="470" y1="84" x2="458" y2="126" stroke="#9fcdb5" stroke-width="1.2"/><text x="455" y="124" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <!-- Bottom branches: Equipment, Measurement, Management -->
+            <!-- Equipment -->
+            <line x1="120" y1="150" x2="155" y2="222" stroke="#036d3a" stroke-width="1.8"/>
+            <rect x="100" y="220" width="96" height="26" rx="3" fill="#e8f5ee" stroke="#2f7653" stroke-width="1.2"/>
+            <text x="148" y="237" text-anchor="middle" font-family="Mukta,sans-serif" font-size="9.5" font-weight="700" fill="#036d3a">Equipment</text>
+            <line x1="140" y1="220" x2="128" y2="194" stroke="#9fcdb5" stroke-width="1.2"/><text x="125" y="192" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <line x1="150" y1="220" x2="138" y2="177" stroke="#9fcdb5" stroke-width="1.2"/><text x="135" y="175" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <!-- Measurement -->
+            <line x1="270" y1="150" x2="295" y2="222" stroke="#036d3a" stroke-width="1.8"/>
+            <rect x="262" y="220" width="108" height="26" rx="3" fill="#e8f5ee" stroke="#2f7653" stroke-width="1.2"/>
+            <text x="316" y="237" text-anchor="middle" font-family="Mukta,sans-serif" font-size="9.5" font-weight="700" fill="#036d3a">Measurement</text>
+            <line x1="300" y1="220" x2="288" y2="194" stroke="#9fcdb5" stroke-width="1.2"/><text x="285" y="192" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <line x1="310" y1="220" x2="298" y2="177" stroke="#9fcdb5" stroke-width="1.2"/><text x="295" y="175" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <!-- Management -->
+            <line x1="440" y1="150" x2="462" y2="222" stroke="#036d3a" stroke-width="1.8"/>
+            <rect x="430" y="220" width="110" height="26" rx="3" fill="#e8f5ee" stroke="#2f7653" stroke-width="1.2"/>
+            <text x="485" y="237" text-anchor="middle" font-family="Mukta,sans-serif" font-size="9.5" font-weight="700" fill="#036d3a">Management</text>
+            <line x1="460" y1="220" x2="448" y2="194" stroke="#9fcdb5" stroke-width="1.2"/><text x="445" y="192" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+            <line x1="470" y1="220" x2="458" y2="177" stroke="#9fcdb5" stroke-width="1.2"/><text x="455" y="175" font-family="Mukta,sans-serif" font-size="7.5" fill="#555">________________</text>
+          </svg>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 SAM QI Toolkit · Fishbone Diagram · Aligns with SQUIRE 2.0 Item 3 (Problem Description)</p>
+          <div class="tool-actions"><a href="downloads/05-Fishbone-Diagram-Template.pptx" class="btn-download dl-ppt" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 4h3.5a2.75 2.75 0 010 5.5H8.5V15.5H7V7zm1.5 1.4v2.7h2a1.35 1.35 0 000-2.7h-2z"/></svg>Download PowerPoint <span class="dl-size">(32 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Template</button></div>
+        </div>
       </div>
     </div>
+  </details>
 
-  </div>
+  <!-- ── TOOL 6: FMEA ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">6</span>
+        <div class="tc-meta">
+          <h4>Failure Modes &amp; Effects Analysis (FMEA)</h4>
+          <span>Proactively identify risks before implementing your change — essential for patient safety QI</span>
+        </div>
+        <span class="tc-badge">Risk / Safety</span>
+        <span class="tc-arrow">▸</span>
+      </div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-fmea">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">FMEA Template · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Process / Intervention</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Team</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Date</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body" style="padding:0">
+          <div style="overflow-x:auto">
+            <table class="fmea-table">
+              <thead>
+                <tr>
+                  <th style="width:18%">Process Step</th>
+                  <th style="width:18%">Potential Failure Mode</th>
+                  <th style="width:18%">Potential Effect</th>
+                  <th style="width:7%">Severity (1–10)</th>
+                  <th style="width:7%">Occurrence (1–10)</th>
+                  <th style="width:7%">Detection (1–10)</th>
+                  <th style="width:7%">RPN (S×O×D)</th>
+                  <th style="width:18%">Recommended Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="fmea-rpn"></span></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="fmea-rpn"></span></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="fmea-rpn"></span></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="fmea-rpn"></span></td><td></td></tr>
+                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td><span class="fmea-rpn"></span></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding:10px 14px;font-size:.71rem;color:var(--sam-muted)">
+            RPN (Risk Priority Number) = Severity × Occurrence × Detection. Score each 1–10. RPN ≥ 100 = high priority for action. Aim to reduce the highest RPN scores first.
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 SAM QI Toolkit · FMEA · Aligns with SQUIRE 2.0 Item 12 (Ethical Considerations — harm prevention)</p>
+          <div class="tool-actions"><a href="downloads/06-FMEA-Worksheet.xlsx" class="btn-download dl-excel" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm2 4h2.2l1.3 2.5L10.8 7H13l-2.2 4 2.3 4.5h-2.2l-1.4-2.7-1.4 2.7H6l2.3-4.5L6 7z"/></svg>Download Excel <span class="dl-size">(11 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Template</button></div>
+        </div>
+      </div>
+    </div>
+  </details>
 
-  <div style="text-align:center;margin-top:20px">
-    <a href="https://acutemedjournal.co.uk/" class="btn-green-outline">
-      Browse Acute Medicine Journal for more QI publications ↗
-    </a>
+  <!-- ── TOOL 7: PRECISE Indicator Scorecard ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">7</span>
+        <div class="tc-meta">
+          <h4>PRECISE Indicator Scorecard</h4>
+          <span>Evaluate your chosen QI measures against all seven PRECISE criteria before committing to data collection</span>
+        </div>
+        <span class="tc-badge">Measurement Design</span>
+        <span class="tc-arrow">▸</span>
+      </div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-precise">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">PRECISE Indicator Scorecard · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Proposed Indicator</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Indicator Type (Structure/Process/Outcome)</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Reviewer / Date</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body" style="padding:0">
+          <div class="pre-score-tpl" style="overflow-x:auto">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:5%">#</th>
+                  <th style="width:20%">Criterion</th>
+                  <th style="width:35%">Key Question</th>
+                  <th style="width:25%">Assessment (notes)</th>
+                  <th style="width:7.5%">Met? ✓/~✗</th>
+                  <th style="width:7.5%">Score (0–2)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="score-letter">P</span></td><td style="font-weight:700;color:var(--sam-green)">Patient-centred</td><td style="font-size:.69rem">Would a patient on this AMU recognise this as important?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr><td><span class="score-letter">R</span></td><td style="font-weight:700;color:#036d3a">Reliable</td><td style="font-size:.69rem">Could two collectors independently reach the same value?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr><td><span class="score-letter">E</span></td><td style="font-weight:700;color:#2f7653">Evidence-based</td><td style="font-size:.69rem">Is there guideline/audit evidence linking this to quality?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr><td><span class="score-letter" style="background:var(--sam-blue)">C</span></td><td style="font-weight:700;color:var(--sam-blue)">Clear &amp; Comparable</td><td style="font-size:.69rem">Is there an unambiguous operational definition with numerator/denominator?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr><td><span class="score-letter" style="background:#1a5a8a">I</span></td><td style="font-weight:700;color:#1a5a8a">Improvable</td><td style="font-size:.69rem">Is there a demonstrable gap vs best practice / SAMBA benchmarks?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr><td><span class="score-letter" style="background:#155f8a">S</span></td><td style="font-weight:700;color:#155f8a">Sensitive to Change</td><td style="font-size:.69rem">Will a detectable signal appear within the project timeframe?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr><td><span class="score-letter" style="background:#0f4d72">E</span></td><td style="font-weight:700;color:#0f4d72">Evaluable &amp; Efficient</td><td style="font-size:.69rem">Can data be collected from routine sources without excessive burden?</td><td></td><td style="text-align:center"><span class="score-check"></span></td><td style="text-align:center">/2</td></tr>
+                <tr style="background:var(--sam-green-light)"><td colspan="4" style="font-weight:700;font-size:.78rem;color:var(--sam-green)">PRECISE Total Score (0–14) &nbsp;|&nbsp; ≥10 = Suitable &nbsp; 6–9 = Review &nbsp; &lt;6 = Reconsider</td><td style="text-align:center">Total:</td><td style="text-align:center;font-weight:700;font-size:.95rem;color:var(--sam-green)">&nbsp;&nbsp;&nbsp;/14</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="padding:10px 14px">
+            <div class="sam-meta-field"><label>Verdict / Action</label><div class="field-line"></div><div class="field-line" style="margin-top:4px"></div></div>
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 SAM QI Toolkit · PRECISE Scorecard · Sources: Pencheon NHS Good Indicators Guide; Campbell et al. (2002)</p>
+          <div class="tool-actions"><a href="downloads/07-PRECISE-Scorecard.xlsx" class="btn-download dl-excel" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm2 4h2.2l1.3 2.5L10.8 7H13l-2.2 4 2.3 4.5h-2.2l-1.4-2.7-1.4 2.7H6l2.3-4.5L6 7z"/></svg>Download Excel <span class="dl-size">(8 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Template</button></div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ── TOOL 8: SQUIRE 2.0 Reporting Checklist ── -->
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">8</span>
+        <div class="tc-meta">
+          <h4>SQUIRE 2.0 Reporting Checklist</h4>
+          <span>Confirm all 18 items are addressed before submitting your QI report for publication</span>
+        </div>
+        <span class="tc-badge">Reporting / Publication</span>
+        <span class="tc-arrow">▸</span>
+      </div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-squire">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">SQUIRE 2.0 Reporting Checklist · Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Manuscript Title</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Corresponding Author</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Target Journal</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body" style="padding:12px 16px">
+          <!-- Section labels -->
+          <div style="background:var(--sam-green);color:#fff;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin-bottom:8px">Title &amp; Abstract (Items 1–2)</div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">1</span><div class="squire-tpl-text"><strong>Title</strong><span>Indicates manuscript concerns a healthcare improvement initiative</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">2</span><div class="squire-tpl-text"><strong>Abstract</strong><span>Structured summary: background, local problem, methods, interventions, results, conclusions</span></div><span class="squire-chk"></span></div>
+          <div style="background:#2f7653;color:#fff;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin:10px 0 8px">Introduction — Why did you start? (Items 3–6)</div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">3</span><div class="squire-tpl-text"><strong>Problem Description</strong><span>Nature and significance of the local problem with baseline data</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">4</span><div class="squire-tpl-text"><strong>Available Knowledge</strong><span>Summary of what is currently known, including SAMBA/national benchmarks and guidelines</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">5</span><div class="squire-tpl-text"><strong>Rationale</strong><span>Frameworks/theories used (e.g., Model for Improvement, COM-B, Lean, Driver Diagram)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">6</span><div class="squire-tpl-text"><strong>Specific Aims</strong><span>SMART AIM statement — what the project and report aim to achieve</span></div><span class="squire-chk"></span></div>
+          <div style="background:var(--sam-blue);color:#fff;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin:10px 0 8px">Methods — What did you do? (Items 7–12)</div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">7</span><div class="squire-tpl-text"><strong>Context</strong><span>AMU type, size, staffing, EPR, culture, competing pressures — key contextual factors</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">8</span><div class="squire-tpl-text"><strong>Interventions</strong><span>Description reproducible by others (8a); team composition and roles (8b)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">9</span><div class="squire-tpl-text"><strong>Study of Intervention</strong><span>Approach to assessing impact (9a); attribution approach (9b)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">10</span><div class="squire-tpl-text"><strong>Measures</strong><span>Outcome, process &amp; balancing measures with operational definitions (10a–c)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">11</span><div class="squire-tpl-text"><strong>Analysis</strong><span>Qual/quant methods (11a); time-series analysis — run chart / SPC (11b)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">12</span><div class="squire-tpl-text"><strong>Ethical Considerations</strong><span>QI vs research classification; HRA decision tool; data governance; conflicts of interest</span></div><span class="squire-chk"></span></div>
+          <div style="background:#1a5a8a;color:#fff;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin:10px 0 8px">Results — What did you find? (Item 13)</div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">13</span><div class="squire-tpl-text"><strong>Results (6 sub-items)</strong><span>PDSA evolution (a) · Process/outcome data as run chart (b) · Contextual interactions (c) · Associations (d) · Unintended consequences (e) · Missing data (f)</span></div><span class="squire-chk"></span></div>
+          <div style="background:#555;color:#fff;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin:10px 0 8px">Discussion — What does it mean? (Items 14–18)</div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">14</span><div class="squire-tpl-text"><strong>Summary</strong><span>Key findings vs AIM (14a); project strengths (14b)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">15</span><div class="squire-tpl-text"><strong>Interpretation</strong><span>Intervention-outcome association · literature comparison · impact · contextual differences · costs</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">16</span><div class="squire-tpl-text"><strong>Limitations</strong><span>Generalisability (16a) · internal validity threats (16b) · mitigation efforts (16c)</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">17</span><div class="squire-tpl-text"><strong>Conclusions</strong><span>Usefulness · sustainability · spread potential · implications · next steps</span></div><span class="squire-chk"></span></div>
+          <div class="squire-tpl-row"><span class="squire-tpl-num">18</span><div class="squire-tpl-text"><strong>Funding</strong><span>Sources of funding; role of funder in design, implementation, interpretation</span></div><span class="squire-chk"></span></div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📋 SAM QI Toolkit · SQUIRE 2.0 Checklist · Ogrinc G et al., BMJ Qual Saf 2016;25:986–992 · squire-statement.org</p>
+          <div class="tool-actions"><a href="downloads/08-SQUIRE-Reporting-Checklist.docx" class="btn-download dl-word" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3.4 4.5l1.4 5.5h.1l1.1-4 1.1 4h.1l1.4-5.5h1.6l-2.2 8h-1.4l-1.05-3.8L8.85 15.5H7.4l-2.2-8H7.4z"/></svg>Download Word <span class="dl-size">(15 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Checklist</button></div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="toolkit-card">
+    <summary>
+      <div class="toolkit-card-head">
+        <span class="toolkit-num">9</span>
+        <div class="tc-meta">
+          <h4>Audit Data Collection Template</h4>
+          <span>Pre-built spreadsheet for collecting patient demographics, admission details, and outcome metrics — ready for any AMU clinical audit</span>
+        </div>
+        <span class="tc-badge">Data / Audit</span>
+        <span class="tc-arrow">▸</span>
+      </div>
+    </summary>
+    <div class="template-sheet">
+      <div class="sam-template" id="tmpl-audit">
+        <div class="sam-tmpl-header">
+          <span class="sam-tmpl-title">Audit Data Collection Template &middot; Society for Acute Medicine QI Toolkit</span>
+          <div class="sam-tmpl-logo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4L28 27H4L16 4Z" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.4" stroke-linejoin="round"/><line x1="16" y1="15" x2="16" y2="22" stroke="rgba(255,255,255,.8)" stroke-width="2.4"/><circle cx="16" cy="25.5" r="1.5" fill="rgba(255,255,255,.8)"/></svg>SAM QI Toolkit</div>
+        </div>
+        <div class="sam-tmpl-meta">
+          <div class="sam-meta-field"><label>Audit Title</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Lead Auditor</label><div class="field-line"></div></div>
+          <div class="sam-meta-field"><label>Date Range</label><div class="field-line"></div></div>
+        </div>
+        <div class="sam-tmpl-body" style="padding:14px 16px">
+          <p style="font-size:.78rem;color:var(--sam-body-text);margin-bottom:14px;line-height:1.5">A ready-to-use Excel template for collecting standardised patient-level audit data on the AMU. Pre-populated with two header groups — <strong>Basic Demographics</strong> and <strong>Admission Details</strong> — plus seven blank columns for project-specific variables.</p>
+
+          <div style="background:var(--sam-green);color:#fff;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin-bottom:8px">Basic Demographics (Cols A–F)</div>
+          <div style="border:1px solid var(--sam-border);border-radius:4px;overflow:hidden;margin-bottom:14px">
+            <table style="width:100%;border-collapse:collapse;font-size:.72rem;table-layout:fixed">
+              <thead>
+                <tr style="background:var(--sam-green-pale)">
+                  <th style="padding:6px 8px;text-align:left;border-right:1px solid var(--sam-border);font-weight:700;color:var(--sam-green)">PID</th>
+                  <th style="padding:6px 8px;text-align:left;border-right:1px solid var(--sam-border);font-weight:700;color:var(--sam-green)">Date of Birth</th>
+                  <th style="padding:6px 8px;text-align:left;border-right:1px solid var(--sam-border);font-weight:700;color:var(--sam-green)">Age</th>
+                  <th style="padding:6px 8px;text-align:left;border-right:1px solid var(--sam-border);font-weight:700;color:var(--sam-green)">Gender</th>
+                  <th style="padding:6px 8px;text-align:left;border-right:1px solid var(--sam-border);font-weight:700;color:var(--sam-green)">Ethnicity</th>
+                  <th style="padding:6px 8px;text-align:left;font-weight:700;color:var(--sam-green)">Postcode</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);color:#999;font-style:italic">001</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);color:#999">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);color:#999">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);color:#999">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);color:#999">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);color:#999">&nbsp;</td></tr>
+                <tr><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);color:#999;font-style:italic">002</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border)">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border)">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border)">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border)">&nbsp;</td><td style="padding:8px 8px;border-top:1px solid var(--sam-border)">&nbsp;</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="background:var(--sam-blue);color:#fff;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin-bottom:8px">Admission &amp; Outcome Details (Cols G–P)</div>
+          <div style="border:1px solid var(--sam-border);border-radius:4px;overflow:hidden;margin-bottom:14px">
+            <table style="width:100%;border-collapse:collapse;font-size:.7rem">
+              <thead>
+                <tr style="background:#eaf2f9">
+                  <th style="padding:6px 8px;text-align:left;border-right:1px solid var(--sam-border);font-weight:700;color:#1a5a8a;width:30%">Field</th>
+                  <th style="padding:6px 8px;text-align:left;font-weight:700;color:#1a5a8a">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">G &middot; Date/Time of presentation onto PICS</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">From EPR — admission timestamp</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">H &middot; Date/Time of discharge</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">From EPR — discharge timestamp</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">I &middot; Length of stay</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Auto-calculated from G and H</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">J &middot; In-hospital mortality</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Y = 1, N = 0</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">K &middot; 30-day mortality from discharge</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Y = 1, N = 0</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">L &middot; 1-year mortality from discharge</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Y = 1, N = 0</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">M &middot; Required ITU admission</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Y = 1, N = 0</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">N &middot; Readmitted within 30 days</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Y = 1, N = 0</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">O &middot; Date of readmission</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">NA if not readmitted</td></tr>
+                <tr><td style="padding:6px 8px;border-top:1px solid var(--sam-border);border-right:1px solid var(--sam-border);font-weight:600">P &middot; Reason for readmission</td><td style="padding:6px 8px;border-top:1px solid var(--sam-border);color:var(--sam-muted);font-style:italic">Free text</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="background:#7a5a00;color:#fff;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px;margin-bottom:8px">Project-Specific Variables (Cols Q–W)</div>
+          <p style="font-size:.74rem;color:var(--sam-body-text);margin-bottom:8px;line-height:1.5">Seven blank columns are pre-formatted for you to label with your project's specific variables — e.g. <em>Sepsis Six compliance</em>, <em>NEWS2 escalation time</em>, <em>VTE prophylaxis given</em>, <em>Antibiotic stewardship review</em>. Rename the headers in row 2 before starting data collection.</p>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:6px">
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 1</div>
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 2</div>
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 3</div>
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 4</div>
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 5</div>
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 6</div>
+            <div style="background:#fef3e6;border:1px dashed #c9a05a;border-radius:3px;padding:6px 4px;text-align:center;font-size:.65rem;font-weight:600;color:#7a5a00">Var 7</div>
+          </div>
+
+          <div class="note-box" style="margin-top:14px;font-size:.72rem">
+            <strong>Information Governance:</strong> The PID column is for a study-specific identifier. Do not enter NHS numbers, full names, or other directly-identifying information into this spreadsheet unless your project has formal data protection approval. Store completed audits on Trust-approved systems only.
+          </div>
+        </div>
+        <div class="tmpl-actions">
+          <p>📊 SAM QI Toolkit &middot; 100 patient rows pre-formatted &middot; Customise Q–W columns for your audit topic</p>
+          <div class="tool-actions"><a href="downloads/09-Audit-Data-Collection-Template.xlsx" class="btn-download dl-excel" download><svg class="dl-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm2 4h2.2l1.3 2.5L10.8 7H13l-2.2 4 2.3 4.5h-2.2l-1.4-2.7-1.4 2.7H6l2.3-4.5L6 7z"/></svg>Download Excel <span class="dl-size">(20 KB)</span></a><button class="btn-print" onclick="window.print()"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a1 1 0 001 1h8a1 1 0 001-1v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a1 1 0 00-1-1H6a1 1 0 00-1 1zm2 0h6v3H7V4zm-1 9v-1h8v4H6v-3zm-1-4a1 1 0 110-2 1 1 0 010 2z" clip-rule="evenodd"/></svg>Print Layout</button></div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <div class="note-box" style="margin-top:4px">
+    <strong>SAM QI Toolkit — Acute Medicine Edition.</strong> All 9 templates are SAM-branded, printable, and aligned to SQUIRE 2.0 reporting standards, ARCP QIPAT requirements, and SAMBA CQI benchmarks. Expand any tool above to view and print. For additional QI methodology support, visit the <a href="https://www.acutemedicine.org.uk/quality-improvement-2/">SAM QI page</a> or attend an <a href="https://www.acutemedicine.org.uk/sam-events/">Acute Medics as Improvers</a> programme.
   </div>
 </section>
 

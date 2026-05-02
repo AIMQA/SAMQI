@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Training & Case Studies — Society for Acute Medicine Quality Improvement resources for all AMU professions"/>
-<title>Training & Case Studies — SAM Quality Improvement</title>
+<meta name="description" content="Overview — Society for Acute Medicine Quality Improvement resources for all AMU professions"/>
+<title>Overview — SAM Quality Improvement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet"/>
@@ -1443,6 +1443,229 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
 </style>
 
 
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   QI DOMAINS for NHS Leaders — matched to profession card style
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+@media(max-width:980px) { .leader-grid { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:780px) { .leader-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .leader-grid { grid-template-columns: 1fr; } }
+
+.leader-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s, border-color .2s;
+}
+.leader-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  border-color: var(--sam-green-mid);
+}
+.lc-head {
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--sam-border);
+}
+.lc-icon-box {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lc-icon-box svg { width: 18px; height: 18px; color: #fff; }
+
+.lc-head h4 {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--sam-heading);
+  margin: 0 0 2px 0;
+  line-height: 1.2;
+}
+.lc-head .lc-sub {
+  font-size: .68rem;
+  color: var(--sam-muted);
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.lc-body {
+  padding: 12px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.lc-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  flex: 1;
+}
+.lc-body li {
+  font-size: .76rem;
+  color: var(--sam-body-text);
+  line-height: 1.5;
+  padding: 5px 0 5px 14px;
+  position: relative;
+  border-bottom: 1px solid #F5F5F5;
+}
+.lc-body li:last-child { border-bottom: none; }
+.lc-body li::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  font-weight: 700;
+}
+.lc-outcome {
+  font-size: .7rem;
+  font-style: italic;
+  color: var(--sam-muted);
+  background: #FAFAFA;
+  border-left: 3px solid;
+  padding: 8px 10px;
+  margin-top: auto;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.5;
+}
+.lc-outcome strong { color: var(--sam-heading); font-weight: 700; font-style: normal; }
+.lc-prod .lc-icon-box { background: #036D3A; }
+.lc-prod .lc-body li::before { color: #036D3A; }
+.lc-prod .lc-outcome { border-left-color: #036D3A; }
+.lc-lean .lc-icon-box { background: #D97706; }
+.lc-lean .lc-body li::before { color: #D97706; }
+.lc-lean .lc-outcome { border-left-color: #D97706; }
+.lc-rely .lc-icon-box { background: #2563EB; }
+.lc-rely .lc-body li::before { color: #2563EB; }
+.lc-rely .lc-outcome { border-left-color: #2563EB; }
+.lc-safe .lc-icon-box { background: #DC2626; }
+.lc-safe .lc-body li::before { color: #DC2626; }
+.lc-safe .lc-outcome { border-left-color: #DC2626; }
+.lc-flow .lc-icon-box { background: #0891B2; }
+.lc-flow .lc-body li::before { color: #0891B2; }
+.lc-flow .lc-outcome { border-left-color: #0891B2; }
+.lc-expr .lc-icon-box { background: #9333EA; }
+.lc-expr .lc-body li::before { color: #9333EA; }
+.lc-expr .lc-outcome { border-left-color: #9333EA; }
+.lc-work .lc-icon-box { background: #4F46E5; }
+.lc-work .lc-body li::before { color: #4F46E5; }
+.lc-work .lc-outcome { border-left-color: #4F46E5; }
+.lc-equi .lc-icon-box { background: #E11D48; }
+.lc-equi .lc-body li::before { color: #E11D48; }
+.lc-equi .lc-outcome { border-left-color: #E11D48; }
+.lc-sust .lc-icon-box { background: #059669; }
+.lc-sust .lc-body li::before { color: #059669; }
+.lc-sust .lc-outcome { border-left-color: #059669; }
+.lc-edu .lc-icon-box { background: #CA8A04; }
+.lc-edu .lc-body li::before { color: #CA8A04; }
+.lc-edu .lc-outcome { border-left-color: #CA8A04; }
+.lc-eol .lc-icon-box { background: #475569; }
+.lc-eol .lc-body li::before { color: #475569; }
+.lc-eol .lc-outcome { border-left-color: #475569; }
+.lc-cost .lc-icon-box { background: #C026D3; }
+.lc-cost .lc-body li::before { color: #C026D3; }
+.lc-cost .lc-outcome { border-left-color: #C026D3; }
+.lc-dig .lc-icon-box { background: #0284C7; }
+.lc-dig .lc-body li::before { color: #0284C7; }
+.lc-dig .lc-outcome { border-left-color: #0284C7; }
+.lc-res .lc-icon-box { background: #65A30D; }
+.lc-res .lc-body li::before { color: #65A30D; }
+.lc-res .lc-outcome { border-left-color: #65A30D; }
+.lc-frl .lc-icon-box { background: #92400E; }
+.lc-frl .lc-body li::before { color: #92400E; }
+.lc-frl .lc-outcome { border-left-color: #92400E; }
+.lc-sys .lc-icon-box { background: #1E3A8A; }
+.lc-sys .lc-body li::before { color: #1E3A8A; }
+.lc-sys .lc-outcome { border-left-color: #1E3A8A; }
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   WHO QUALITY OF CARE PRINCIPLES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.who-banner {
+  background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ee 100%);
+  border-left: 4px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.who-banner-text { flex: 1; }
+.who-banner-text strong { color: var(--sam-green); }
+.who-banner-text p { font-size: .8rem; color: #1a4530; margin: 0; line-height: 1.5; }
+.who-badge {
+  background: var(--sam-green);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+@media(max-width:980px) { .who-grid { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:780px) { .who-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .who-grid { grid-template-columns: 1fr; } }
+
+.who-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-left: 3px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.who-card:hover {
+  box-shadow: 0 2px 8px rgba(3,109,58,.08);
+}
+.who-card h4 {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--sam-green);
+  margin: 0 0 3px 0;
+  letter-spacing: -.005em;
+}
+.who-card p {
+  font-size: .72rem;
+  color: var(--sam-body-text);
+  line-height: 1.45;
+  margin: 0;
+}
+.who-attribution {
+  font-size: .7rem;
+  color: var(--sam-muted);
+  font-style: italic;
+  text-align: right;
+  margin-top: 4px;
+}
+.who-attribution a { color: var(--sam-green); font-weight: 600; }
+
 </style>
 </head>
 <body>
@@ -1558,11 +1781,11 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
 </header>
 <nav class="icon-nav" aria-label="Section navigation">
   <div class="icon-nav-inner">
-    <a href="index.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/></svg><span>Overview</span></a>
+    <a href="index.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/></svg><span>Overview</span></a>
     <a href="mdt.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg><span>Professions</span></a>
     <a href="methodology.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/></svg><span>Methodology</span></a>
     <a href="tools.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z"/></svg><span>QI Tools</span></a>
-    <a href="training.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
+    <a href="training.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
     <a href="elearning.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>E-Learning</span></a>
     <a href="audits.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg><span>Audits</span></a>
     <a href="library.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>QIP Library</span></a>
@@ -1571,148 +1794,632 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
     <a href="https://www.acutemedicine.org.uk/research-new/"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/></svg><span>Research</span></a>
   </div>
 </nav>
-
-
+<section class="page-hero">
+  <div class="wrap hero-content">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <a href="https://www.acutemedicine.org.uk/">Home</a><span>›</span>
+      <a href="https://www.acutemedicine.org.uk/quality-improvement-2/">QI &amp; Research</a><span>›</span>
+      <span style="color:rgba(255,255,255,.75)">Quality Improvement</span>
+    </nav>
+    <h1>Quality Improvement</h1>
+    <p class="hero-lead">Building a culture of improvement across every AMU — led by nurses, doctors, pharmacists, ACPs, AHPs, and physician associates working together as one team.</p>
+    <div class="hero-badges">
+      <span class="hero-badge"><span class="dot"></span>SAM-QI Committee — Active since 2016</span>
+      <span class="hero-badge">Open to all AMU professions</span>
+      <span class="hero-badge">Priority focus: Same Day Emergency Care</span>
+    </div>
+  </div>
+  <div class="hero-wave"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#f2f2f2" d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"/></svg></div>
+</section>
+<!-- Stats row -->
+<div class="stats-row">
+  <div class="wrap">
+    <div class="stats-inner">
+      <div class="stat-cell"><span class="stat-num">142</span><span class="stat-lbl">Acute units in SAMBA19</span></div>
+      <div class="stat-cell"><span class="stat-num">7,170+</span><span class="stat-lbl">Patients captured</span></div>
+      <div class="stat-cell"><span class="stat-num">2016</span><span class="stat-lbl">SAM-QI Committee founded</span></div>
+      <div class="stat-cell"><span class="stat-num">6</span><span class="stat-lbl">AMU professions represented</span></div>
+    </div>
+  </div>
+</div>
 
 <div class="page-layout">
 <main>
-<!-- ── TRAINING PROGRAMMES ───────────────────── -->
-<section id="programmes" class="sec">
+<!-- ── INTRODUCTION ─────────────────────────── -->
+<section id="intro" class="sec">
   <div class="sec-title">
-    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg></div>
-    SAM QI Training Programmes
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg></div>
+    Introduction
   </div>
-  <p class="sec-subtitle">Open to all AMU professions — SAM explicitly recruits multi-professional teams, not just individual doctors</p>
+  <p class="sec-subtitle">Why QI matters in Acute Medicine — and why SAM is leading the agenda</p>
 
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-top-bar"></div>
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-      <h3>Acute Medics as Improvers</h3>
-      <p>A structured programme developed by the SAM-QI Committee specifically for acute medicine professionals. Delivered over four half-day facilitated sessions, with individual coaching in between each, so participants are applying new skills to a real project from day one. The current national cohort is working on eliminating corridor care — a problem most AMU teams encounter daily but struggle to address systematically.</p>
-      <p style="margin-top:10px;font-size:.78rem;color:var(--sam-muted)">
-        ⏱ 4 half-days + coaching &nbsp;·&nbsp; 🌐 Online / blended &nbsp;·&nbsp; 👥 Nurses, ACPs, AHPs, Pharmacists, PAs &amp; Doctors
-      </p>
-      <a href="https://www.acutemedicine.org.uk/sam-events/" class="card-link">View upcoming dates →</a>
-    </div>
-
-    <div class="card">
-      <div class="card-top-bar teal"></div>
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857"/></svg></div>
-      <h3>Acute Medics Leading Improvement</h3>
-      <p>Developed for those who have completed the core programme or have equivalent QI experience and are ready to lead transformation at a departmental or Trust level. The focus shifts from running a single project to building the conditions under which improvement becomes self-sustaining — working with clinical leads, service managers, and patient partners to embed change into the fabric of the AMU rather than depending on one individual.</p>
-      <p style="margin-top:10px;font-size:.78rem;color:var(--sam-muted)">
-        ⭐ All professions welcome &nbsp;·&nbsp; 📜 Portfolio &amp; revalidation evidence &nbsp;·&nbsp; 🔄 Cross-professional leadership
-      </p>
-      <a href="https://www.acutemedicine.org.uk/sam-events/" class="card-link">View upcoming dates →</a>
-    </div>
-  </div>
-
-  <div class="note-box">
-    📅 Full details and booking for both programmes are added to the <a href="https://www.acutemedicine.org.uk/sam-events/">SAM Events page</a> as dates are confirmed. SAM members receive priority booking and reduced rates.
-  </div>
-</section>
-
-<!-- ── CASE STUDIES ──────────────────────────── -->
-<section id="casestudies" class="sec">
-  <div class="sec-title">
-    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg></div>
-    QI Case Studies in Acute Medicine
-  </div>
-  <p class="sec-subtitle">Four examples showing how nurses, ACPs, pharmacists, and AHPs lead improvement — not just as team members, but as project leads</p>
-
-  <div class="grid-2">
-
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-green">SDEC</span>
-        <span class="badge b-acp">ACP-led</span>
-      </div>
-      <div class="case-body">
-        <h4>ACP-led SDEC pathway redesign reduces unnecessary admissions</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by an acute medicine ACP in collaboration with the AMU consultant team and ED senior charge nurse</p>
-        <p>An ACP-led multi-PDSA project redesigning the SDEC referral and streaming pathway — including a direct GP phone line triaged by the ACP team, standardised acceptance criteria, and a same-day discharge protocol co-developed with nursing. The ACP's position across the medical-nursing interface was central to making the pathway work in practice.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↓28%</span><small>ED attendance rate</small></div>
-          <div class="metric-box"><span class="mnum">62%</span><small>SDEC utilisation</small></div>
-        </div>
-      </div>
-      <div class="case-footer">
-        <span>📍 North-West AMU · 2023</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med J ↗</a>
-      </div>
-    </div>
-
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-red">Sepsis</span>
-        <span class="badge b-nurse">Nursing-led</span>
-      </div>
-      <div class="case-body">
-        <h4>Nursing-led Sepsis Grab Bag initiative — point-of-care bundle completion</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Designed and led by Band 7 ward nurse with clinical sponsor support from the AMU consultant and pharmacy input for the PGD</p>
-        <p>A Band 7 nurse-initiated project placing pre-assembled Sepsis Grab Bags at the point of care, backed by a nurse-delivered competency programme covering phlebotomy, IV cannulation, and PGD for IV fluids. The nursing team owned both the design and the training — the consultant's role was clinical sponsorship and QIPAT sign-off rather than project leadership. Run charts showed compliance rising from 34% to 81%.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">81%</span><small>Sepsis 6 compliance</small></div>
-          <div class="metric-box"><span class="mnum">↓40min</span><small>Time to antibiotic</small></div>
-        </div>
-      </div>
-      <div class="case-footer">
-        <span>📍 UHB THINK SEPSIS · Midlands</span>
-        <a href="https://www.acutemedicine.org.uk/samba-new/">SAMBA data ↗</a>
-      </div>
-    </div>
-
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-pharm">Pharmacy-led</span>
-        <span class="badge b-green">Safety</span>
-      </div>
-      <div class="case-body">
-        <h4>Pharmacist-led medicines reconciliation within 24 hours of admission</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by the AMU clinical pharmacist team with nursing support for data collection and junior doctor engagement for prescribing changes</p>
-        <p>A clinical pharmacist-initiated project addressing medicines reconciliation failures on admission. Three PDSA cycles tested different models for pharmacy review timing and documentation, working with nursing staff who identified the practical barriers during ward rounds. Run charts showed reconciliation within 24 hours improving from 41% to 88%, with a measurable reduction in prescribing discrepancies.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↑88%</span><small>Reconciliation within 24h</small></div>
-          <div class="metric-box"><span class="mnum">↓62%</span><small>Prescribing discrepancies</small></div>
-        </div>
-      </div>
-      <div class="case-footer">
-        <span>📍 East Midlands AMU · 2023</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med Journal ↗</a>
-      </div>
-    </div>
-
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-teal">Frailty</span>
-        <span class="badge b-ahp">AHP-led</span>
-      </div>
-      <div class="case-body">
-        <h4>OT-led early functional assessment reducing avoidable AMU length of stay</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by the AMU occupational therapy team in collaboration with physiotherapy, acute medicine, and social work — with patient co-design throughout</p>
-        <p>An OT-initiated project implementing structured functional assessment within four hours of admission for all patients over 75 — triggering earlier therapy input, social work referral, and discharge planning conversations. The team co-designed the screening tool with six patients during testing. The project demonstrated that AHP-initiated improvement directly reduces medical LOS, not just therapy waits.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↓1.4d</span><small>Mean LOS (75+)</small></div>
-          <div class="metric-box"><span class="mnum">↑81%</span><small>Assessment within 4h</small></div>
-        </div>
-      </div>
-      <div class="case-footer">
-        <span>📍 Yorkshire AMU · 2024</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med Journal ↗</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="text-align:center;margin-top:20px">
-    <a href="https://acutemedjournal.co.uk/" class="btn-green-outline">
-      Browse Acute Medicine Journal for more QI publications ↗
-    </a>
+  <div class="intro-panel">
+    <p><strong>Acute medicine is a team specialty, and so is QI.</strong> This site is for everyone who works on or leads an AMU — nurses, doctors, ACPs, pharmacists, AHPs, and physician associates. Built by the SAM-QI Committee since 2016, it brings together the tools, frameworks, and case studies that multi-professional AMU teams actually use.</p>
   </div>
 </section>
 
 
+<!-- ── WHO QUALITY OF CARE PRINCIPLES ─── -->
+<section id="who-principles" class="sec">
+  <div class="sec-title">
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L9 11.586l3.293-3.293a1 1 0 011.414 1.414z" clip-rule="evenodd"/></svg></div>
+    Built on WHO Quality of Care Principles
+  </div>
+  <p class="sec-subtitle">The World Health Organization defines seven international dimensions of quality healthcare — every domain on this site operationalises one or more of them in the AMU context</p>
+
+  <div class="who-banner">
+    <div class="who-banner-text">
+      <p><strong>Quality of care</strong> is "the degree to which health services for individuals and populations increase the likelihood of desired health outcomes and are consistent with current professional knowledge." Quality healthcare must be <strong>effective, safe, people-centred, timely, equitable, integrated, and efficient</strong>.</p>
+    </div>
+    <span class="who-badge">WHO 2018</span>
+  </div>
+
+  <div class="who-grid">
+
+    <div class="who-card">
+      <h4>Effective</h4>
+      <p>Providing services based on scientific knowledge and evidence-based guidelines &mdash; avoiding both underuse and overuse</p>
+    </div>
+
+    <div class="who-card">
+      <h4>Safe</h4>
+      <p>Avoiding injuries to patients from the care that is intended to help them</p>
+    </div>
+
+    <div class="who-card">
+      <h4>People-Centred</h4>
+      <p>Providing care that responds to individual preferences, needs, and values</p>
+    </div>
+
+    <div class="who-card">
+      <h4>Timely</h4>
+      <p>Reducing waiting times and sometimes harmful delays for patients and providers</p>
+    </div>
+
+    <div class="who-card">
+      <h4>Equitable</h4>
+      <p>Care that does not vary in quality on account of gender, ethnicity, geography, or socio-economic status</p>
+    </div>
+
+    <div class="who-card">
+      <h4>Integrated</h4>
+      <p>Care coordinated across levels and providers, offering the full range of services throughout the life course</p>
+    </div>
+
+    <div class="who-card">
+      <h4>Efficient</h4>
+      <p>Maximising the benefit of available resources and avoiding waste</p>
+    </div>
+
+  </div>
+
+  <p class="who-attribution">Source: <a href="https://www.who.int/health-topics/quality-of-care">World Health Organization &mdash; Quality of Care</a> &middot; adopted internationally as the foundation for healthcare quality frameworks</p>
+</section>
+
+<!-- ── QI DOMAINS FOR NHS LEADERS ─── -->
+<section id="leader-domains" class="sec">
+  <div class="sec-title">
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd"/></svg></div>
+    QI Domains for NHS Leaders
+  </div>
+  <p class="sec-subtitle">Sixteen strategic categories that align with NHS Trust priorities, the NHS Long Term Plan, and the IHI Quintuple Aim — every QI project on this site delivers value in one or more of these domains</p>
+
+  <div class="leader-grid">
+    <div class="leader-card lc-prod">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Productivity</h4>
+          <p class="lc-sub">Time, Throughput, Capacity</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Speed up the clerking process</li>
+          <li>Reduce time to consultant decision</li>
+          <li>Increase SDEC conversion rates</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> more decisions per shift, shorter length of stay, more patients seen safely</p>
+      </div>
+    </div>
+    <div class="leader-card lc-lean">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V4.13a2.96 2.96 0 00-1.293.749L.879 7.707A1 1 0 000 9h5zm6 6.872V11h5.13a2.96 2.96 0 01-.749 1.293l-2.828 2.828A1 1 0 0111 15.872zM7 11H2.13a2.96 2.96 0 00.749 1.293l2.828 2.828A1 1 0 007 15.872V11zm6-6.872V9h4.872A.998.998 0 0017 7.293L14.121 4.879A2.96 2.96 0 0013 4.13zM9 9h2V4h-2v5z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Lean</h4>
+          <p class="lc-sub">Eliminate Waste</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Stop unnecessary daily blood tests</li>
+          <li>Reduce duplicate clerking documentation</li>
+          <li>Avoid imaging without a clear clinical question</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> lower cost per episode, less patient inconvenience, capacity released for higher-value activity</p>
+      </div>
+    </div>
+    <div class="leader-card lc-rely">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Reliability</h4>
+          <p class="lc-sub">Consistent Care, Every Time</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Multi-professional clerking models</li>
+          <li>Consultant / registrar front-door triage</li>
+          <li>Standardised NEWS2 escalation</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> reduced unwanted variation, fewer harm events, better CQC and Getting It Right First Time positioning</p>
+      </div>
+    </div>
+    <div class="leader-card lc-safe">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Patient Safety</h4>
+          <p class="lc-sub">Harm Prevention</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>NEWS2 escalation compliance</li>
+          <li>Sepsis Six within 1 hour</li>
+          <li>Falls and pressure injury reduction</li>
+          <li>VTE risk assessment &amp; prophylaxis</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> serious incidents and avoidable harm reduced, mortality reviews show fewer omissions, CQC safety domain strengthened</p>
+      </div>
+    </div>
+    <div class="leader-card lc-flow">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Flow</h4>
+          <p class="lc-sub">Patient Journey</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>ED-to-AMU handover within 30 minutes</li>
+          <li>Discharge before noon</li>
+          <li>SDEC conversion to avoid admission</li>
+          <li>Reduced time to specialty bed</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> ED 4-hour and 12-hour standards met, bed-days released, ambulance handover times improved</p>
+      </div>
+    </div>
+    <div class="leader-card lc-expr">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Patient Experience</h4>
+          <p class="lc-sub">What Patients Value</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Clear communication of management plan</li>
+          <li>Dignity at admission (privacy, language)</li>
+          <li>Carer engagement in decisions</li>
+          <li>Discharge information that patients understand</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> Friends &amp; Family Test scores rise, complaints reduce, PROMs improve</p>
+      </div>
+    </div>
+    <div class="leader-card lc-work">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg>
+        </div>
+        <div>
+          <h4>Workforce &amp; Wellbeing</h4>
+          <p class="lc-sub">Staff Retention &amp; Voice</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Protected handover and supervision time</li>
+          <li>Multi-professional psychological safety</li>
+          <li>Structured ACP / PA / trainee development</li>
+          <li>Reducing fixable causes of moral injury</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> GMC National Training Survey scores, NHS Staff Survey engagement, retention of nursing and trainees</p>
+      </div>
+    </div>
+    <div class="leader-card lc-equi">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z"/></svg>
+        </div>
+        <div>
+          <h4>Health Equity</h4>
+          <p class="lc-sub">Core20PLUS5 &amp; Inequalities</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Outcome tracking by deprivation and ethnicity</li>
+          <li>Interpreter access on admission</li>
+          <li>Mental capacity assessment standardisation</li>
+          <li>Frailty-tailored pathways for older adults</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> reduced unwarranted variation in outcomes by Core20PLUS5 group, ICB inequalities metrics improved</p>
+      </div>
+    </div>
+    <div class="leader-card lc-sust">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"/></svg>
+        </div>
+        <div>
+          <h4>Sustainability</h4>
+          <p class="lc-sub">Greener NHS &amp; Net Zero</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Reduce low-value pathology and imaging requests</li>
+          <li>Switch high-carbon inhalers to lower-carbon equivalents</li>
+          <li>Reduce avoidable admissions via SDEC and Hospital@Home</li>
+          <li>Digital documentation, less paper waste</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> contribution to Greener NHS Net Zero by 2040, financial savings from reduced waste, alignment with Trust sustainability strategy</p>
+      </div>
+    </div>
+    <div class="leader-card lc-edu">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>
+        </div>
+        <div>
+          <h4>Education &amp; Training</h4>
+          <p class="lc-sub">Trainee Development &amp; Supervision</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Multi-professional teaching on AMU rounds</li>
+          <li>QIPAT-aligned evidence for ARCP and revalidation</li>
+          <li>Structured supervision for ACPs, PAs, and trainees</li>
+          <li>AMU-specific induction for new doctors and nurses</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> stronger GMC National Training Survey scores, smoother ARCP outcomes, better supervision satisfaction across professions</p>
+      </div>
+    </div>
+    <div class="leader-card lc-eol">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z"/></svg>
+        </div>
+        <div>
+          <h4>End of Life Care</h4>
+          <p class="lc-sub">Dignity &amp; Advance Planning</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Early identification of patients in last year of life</li>
+          <li>ReSPECT and DNACPR discussions on admission</li>
+          <li>Symptom management protocols on the AMU</li>
+          <li>Coordination with palliative and community SPC teams</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> mortality reviews show fewer inappropriate escalations, more patients reach their preferred place of death, families report better-supported decisions</p>
+      </div>
+    </div>
+    <div class="leader-card lc-cost">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Cost &amp; Finance</h4>
+          <p class="lc-sub">Value-Based Care</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Length of stay reduction via earlier senior decision</li>
+          <li>Avoid 30-day readmissions (and tariff penalties)</li>
+          <li>Antimicrobial stewardship and high-cost drug optimisation</li>
+          <li>Avoidable admissions diverted to SDEC</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> cost per emergency admission falls, PLICS benchmark position improves, capacity released without additional spend</p>
+      </div>
+    </div>
+    <div class="leader-card lc-dig">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/></svg>
+        </div>
+        <div>
+          <h4>Digital &amp; Data</h4>
+          <p class="lc-sub">Clinical Informatics</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Real-time AMU dashboards and flow boards</li>
+          <li>Electronic clerking proforma with NEWS2 auto-calculation</li>
+          <li>AI-assisted risk prediction at the front door</li>
+          <li>Coding and data quality for accurate HRG / tariff</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> Trust Digital Maturity Index improves, real-time decisions replace lag-based reporting, correct HRG coding protects income</p>
+      </div>
+    </div>
+    <div class="leader-card lc-res">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Research &amp; Innovation</h4>
+          <p class="lc-sub">Evidence Adoption</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>AMU recruitment to NIHR portfolio studies</li>
+          <li>Time from publication to local adoption</li>
+          <li>Embedded clinical trials within AMU pathways</li>
+          <li>AHSN-spread innovations adopted locally</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> NIHR research-active site status, faster evidence translation, AHSN partnerships strengthened, ICB innovation metrics met</p>
+      </div>
+    </div>
+    <div class="leader-card lc-frl">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a3 3 0 116 0 3 3 0 01-6 0zm9 4a4 4 0 00-8 0v3h8v-3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div>
+          <h4>Frailty &amp; Older People</h4>
+          <p class="lc-sub">Comprehensive Assessment</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Front-door Clinical Frailty Score screening</li>
+          <li>Comprehensive Geriatric Assessment pathway</li>
+          <li>Delirium recognition and prevention</li>
+          <li>Hospital-acquired deconditioning reduction</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> length of stay falls in over-65s, delirium rates reduce, fewer patients lose functional independence in hospital</p>
+      </div>
+    </div>
+    <div class="leader-card lc-sys">
+      <div class="lc-head">
+        <div class="lc-icon-box">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z"/></svg>
+        </div>
+        <div>
+          <h4>System Integration</h4>
+          <p class="lc-sub">Place-Based ICB Working</p>
+        </div>
+      </div>
+      <div class="lc-body">
+        <ul>
+          <li>Virtual ward step-down to free AMU capacity</li>
+          <li>Hospital-at-home enablement and partnership</li>
+          <li>Discharge-to-assess pathways</li>
+          <li>Front-door GP and paramedic in-reach</li>
+        </ul>
+        <p class="lc-outcome"><strong>Outcome:</strong> AMU acts as system hub not bottleneck, ICB Operating Plan deliverables met, NHS Long Term Plan alignment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QI ACROSS THE MDT ─────────────────────── -->
+<section id="mdt" class="sec">
+  <div class="sec-title">
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg></div>
+    QI Across the AMU Team
+  </div>
+  <p class="sec-subtitle">How quality improvement looks from every professional role — and why each perspective is essential to improvement that lasts</p>
+
+  <div class="mp-banner">
+    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+    <div class="mp-banner-text">
+      <strong>SAM represents all professions working in Acute Medicine</strong>
+      <p>SAM membership, training programmes, and QI resources are open to every professional who works in or leads an acute medical unit — not just doctors. The SAM-QI Committee explicitly includes nursing, ACP, AHP, and pharmacy perspectives in all its work.</p>
+    </div>
+    <div class="mp-banner-pills">
+      <span class="mp-pill">Nursing</span>
+      <span class="mp-pill">ACPs</span>
+      <span class="mp-pill">Pharmacy</span>
+      <span class="mp-pill">AHPs</span>
+      <span class="mp-pill">PAs</span>
+      <span class="mp-pill">Medicine</span>
+    </div>
+  </div>
+
+  <div class="prof-grid">
+
+    <!-- Nursing -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-nurse">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Nursing Staff</h4><span>Band 5–8 · Ward &amp; Specialist</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Nurses are at the operational heart of AMU quality — from early warning scores and ANTT standards to patient experience and discharge coordination. Many of the most impactful AMU improvement projects are nursing-led, and SAM's training programmes are explicitly designed to be accessible and relevant at every banding.</p>
+        <p>Nursing QI evidence can support KSF development, Band 7/8 job applications, and NMC revalidation as well as contributing to ward accreditation and CQC compliance.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical nursing-led QI areas</div>
+          <span class="prof-ex-tag">NEWS2 documentation</span>
+          <span class="prof-ex-tag">Sepsis Grab Bag</span>
+          <span class="prof-ex-tag">Patient falls</span>
+          <span class="prof-ex-tag">VTE assessment</span>
+          <span class="prof-ex-tag">Pressure injury prevention</span>
+          <span class="prof-ex-tag">Nutrition screening</span>
+          <span class="prof-ex-tag">Hand hygiene</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/nursing/">SAM Nursing Hub →</a>
+      </div>
+    </div>
+
+    <!-- ACPs -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-acp">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+        </div>
+        <div><h4>Advanced Clinical Practitioners</h4><span>ACPs — all clinical backgrounds</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>ACPs in acute medicine span nursing, AHP, and pharmacy backgrounds and are increasingly central to AMU workforce models. The multi-professional credential of ACP practice makes them natural champions of cross-professional improvement work — leading projects that bridge the traditional doctor-nurse divide and demonstrating how the four pillars of advanced practice (clinical, leadership, education, research) align with structured QI.</p>
+        <p>ACP QI projects directly support portfolio evidence for credentialing and revalidation, and demonstrate the leadership pillar in practice.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical ACP-led QI areas</div>
+          <span class="prof-ex-tag">SDEC pathway</span>
+          <span class="prof-ex-tag">Ambulatory care referrals</span>
+          <span class="prof-ex-tag">ACS pathways</span>
+          <span class="prof-ex-tag">Prescribing safety</span>
+          <span class="prof-ex-tag">Rapid assessment models</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/advanced-clinical-practitioners/">SAM ACP Hub →</a>
+      </div>
+    </div>
+
+    <!-- Doctors -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-doc">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Doctors</h4><span>Foundation · IMT · HST · Consultants · SAS</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Medical staff in acute medicine lead QI from foundation to consultant level, with structured QIPAT expectations at every HST ARCP. The curriculum requires not just participation but demonstrated leadership — designing, running, and reporting at least one complete improvement project. Consultant and SAS doctors are increasingly expected to sponsor and sustain QI programmes as well as run them, particularly as AMU clinical leads and quality governance leads.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical medically-led QI areas</div>
+          <span class="prof-ex-tag">Diagnostic pathways</span>
+          <span class="prof-ex-tag">Antibiotic stewardship</span>
+          <span class="prof-ex-tag">Frailty screening</span>
+          <span class="prof-ex-tag">Mortality review</span>
+          <span class="prof-ex-tag">SDEC criteria</span>
+          <span class="prof-ex-tag">Handover quality</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/trainee-hub/">SAM Trainee Hub →</a>
+      </div>
+    </div>
+
+    <!-- Pharmacy -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-pharm">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Pharmacy</h4><span>Clinical Pharmacists · Technicians</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Clinical pharmacists embedded on AMUs are well positioned to lead medication safety QI — one of the highest-impact improvement domains in acute medicine. From medicines reconciliation on admission to antimicrobial stewardship, pharmacy-led QI directly reduces patient harm and informs prescribing safety programmes. Pharmacy involvement in multidisciplinary QI teams is a SAMBA Clinical Quality Indicator and is expected at ARCP for pharmacist prescribers.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical pharmacy-led QI areas</div>
+          <span class="prof-ex-tag">Medicines reconciliation</span>
+          <span class="prof-ex-tag">Antimicrobial stewardship</span>
+          <span class="prof-ex-tag">High-risk drug monitoring</span>
+          <span class="prof-ex-tag">Allergy documentation</span>
+          <span class="prof-ex-tag">TTA turnaround time</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/pharmacy/">SAM Pharmacy Hub →</a>
+      </div>
+    </div>
+
+    <!-- AHPs -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-ahp">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+        </div>
+        <div><h4>Allied Health Professionals</h4><span>Physio · OT · SALT · Dietetics</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>AHPs are central to the AMU's ability to discharge patients safely and at the right time. Physiotherapists, occupational therapists, speech and language therapists, and dietitians each hold a unique view of the bottlenecks that delay safe discharge, and QI projects that involve AHPs consistently demonstrate better outcomes for length of stay, functional recovery, and readmission prevention than those that do not.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical AHP-led QI areas</div>
+          <span class="prof-ex-tag">Early discharge planning</span>
+          <span class="prof-ex-tag">Functional assessment</span>
+          <span class="prof-ex-tag">Falls prevention</span>
+          <span class="prof-ex-tag">Swallow screening</span>
+          <span class="prof-ex-tag">Malnutrition screening</span>
+          <span class="prof-ex-tag">7-day AHP cover</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/allied-health-professionals/">SAM AHP Hub →</a>
+      </div>
+    </div>
+
+    <!-- PAs -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-pa">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Physician Associates</h4><span>PAs working in AMU</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Physician associates working in acute medicine are an increasingly significant part of the AMU workforce, particularly in assessment and initial management of unselected medical admissions. PAs are well placed to lead QI projects that span the initial assessment period — clerking quality, documentation standards, early investigation ordering — and their QI work forms part of the portfolio evidence required for ongoing professional development.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical PA-led QI areas</div>
+          <span class="prof-ex-tag">Clerking quality</span>
+          <span class="prof-ex-tag">Investigation ordering</span>
+          <span class="prof-ex-tag">Documentation standards</span>
+          <span class="prof-ex-tag">SDEC assessment</span>
+          <span class="prof-ex-tag">Escalation pathways</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/physician-associates/">SAM PA Hub →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="intro-panel" style="border-left-color:var(--sam-green-mid)">
+    <p><strong>What makes multi-professional QI different?</strong> The most persistent problems on an AMU cannot be solved by one professional group alone. Delayed discharge is not a nursing problem or a medical problem — it is a system problem that requires physiotherapy, occupational therapy, social work, pharmacy, medicine, and nursing to all change their piece of the process at the same time. Driver diagrams and PDSA cycles are as powerful for a nursing team as for a registrar, and the data that matters — LOS, re-admission, patient experience — reflects the whole team's work, not any individual's.</p>
+    <p>SAM's QI training programmes actively recruit teams rather than individuals. A doctor-nurse-ACP trio from the same unit, or a nurse-pharmacist-OT group working on a shared discharge problem, is more likely to produce sustained change than individuals working in parallel. The SAM events page lists current cohort application details — teams are encouraged to apply together.</p>
+  </div>
+</section>
+
+
+<div class="cta-band" style="margin-bottom:40px">
+  <div>
+    <h3>Get Involved in SAM-QI</h3>
+    <p>Join the SAM QI Committee, submit a QI abstract for the next conference, or register for an Acute Medics as Improvers programme.</p>
+  </div>
+  <div class="cta-btns">
+    <a href="https://www.acutemedicine.org.uk/contact/" class="btn-white-solid">Contact the Committee</a>
+    <a href="https://www.acutemedicine.org.uk/sam-events/" class="btn-white-outline">View Events</a>
+  </div>
+</div>
 </main>
 <aside class="sidebar">
 

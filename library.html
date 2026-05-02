@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Training & Case Studies — Society for Acute Medicine Quality Improvement resources for all AMU professions"/>
-<title>Training & Case Studies — SAM Quality Improvement</title>
+<meta name="description" content="QIP Library — Browse completed quality improvement projects from AMUs across the UK and submit your own to share with the community"/>
+<title>QIP Library — SAM Quality Improvement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet"/>
@@ -1443,6 +1443,456 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
 </style>
 
 
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   QIP LIBRARY — page-specific styles
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.lib-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 14px 0 4px;
+}
+@media(max-width:780px) { .lib-stats { grid-template-columns: 1fr 1fr; } }
+.lib-stat {
+  background: var(--sam-green-pale);
+  border: 1px solid var(--sam-green-light);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  text-align: center;
+}
+.ls-num {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--sam-green);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.ls-lbl {
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--sam-green);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-top: 4px;
+}
+
+/* Filter bar (visual / decorative) */
+.lib-filters {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.lf-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.lf-label {
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--sam-muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  width: 130px;
+  flex-shrink: 0;
+}
+@media(max-width:780px) { .lf-label { width: 100%; margin-bottom: 4px; } }
+.lf-tag {
+  display: inline-block;
+  background: var(--sam-grey-light);
+  color: var(--sam-body-text);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  border: 1px solid transparent;
+}
+.lf-tag:hover { background: var(--sam-green-light); color: var(--sam-green); }
+.lf-tag.active {
+  background: var(--sam-green);
+  color: #fff;
+}
+
+/* Project cards grid */
+.qip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 4px;
+}
+@media(max-width:980px) { .qip-grid { grid-template-columns: 1fr; } }
+
+.qip-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s, border-color .2s;
+}
+.qip-card:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,.08);
+  border-color: var(--sam-green-mid);
+}
+.qip-card-head {
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--sam-grey-light);
+  border-bottom: 1px solid var(--sam-border);
+  flex-wrap: wrap;
+}
+.qip-status {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 3px 9px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+.qip-status.reviewed {
+  background: #e8f5ee;
+  color: #036d3a;
+}
+.qip-card-meta {
+  font-size: .72rem;
+  color: var(--sam-muted);
+  font-weight: 500;
+}
+.qip-card-body {
+  padding: 14px 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.qip-card-body h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sam-heading);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+.qip-leads {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  font-size: .72rem;
+}
+.qip-prof-tag {
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.qip-team {
+  color: var(--sam-muted);
+  font-size: .7rem;
+  font-style: italic;
+  flex: 1;
+  min-width: 200px;
+}
+
+.qip-aim {
+  background: var(--sam-green-pale);
+  border-left: 3px solid var(--sam-green);
+  padding: 10px 12px;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 12px;
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--sam-body-text);
+}
+.qip-aim strong { color: var(--sam-green); font-weight: 700; }
+
+.qip-meta-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #f0f0f0;
+}
+.qip-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.qip-meta-label {
+  font-size: .62rem;
+  font-weight: 700;
+  color: var(--sam-muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  width: 75px;
+  flex-shrink: 0;
+}
+.qip-d-tag {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+.qip-d-tag.d-prod { background: #e8f5ee; color: #036d3a; border-color: #b3dac0; }
+.qip-d-tag.d-rely { background: #dbeafe; color: #1e40af; border-color: #b6cdf5; }
+.qip-d-tag.d-safe { background: #fee2e2; color: #b91c1c; border-color: #fca5a5; }
+.qip-d-tag.d-flow { background: #cffafe; color: #0e7490; border-color: #a5e8ee; }
+.qip-d-tag.d-expr { background: #f3e8ff; color: #7e22ce; border-color: #d8b4fe; }
+.qip-d-tag.d-work { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+.qip-d-tag.d-cost { background: #fae8ff; color: #a21caf; border-color: #f0abfc; }
+.qip-d-tag.d-sust { background: #d1fae5; color: #047857; border-color: #a7f3d0; }
+.qip-d-tag.d-frl  { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+.qip-d-tag.d-sys  { background: #dbeafe; color: #1e3a8a; border-color: #93c5fd; }
+.qip-d-tag.d-meth { background: #fff; color: var(--sam-body-text); border-color: var(--sam-border); }
+.qip-d-tag.d-who  { background: #f0f9f4; color: #036d3a; border-color: #c5e3d1; font-style: italic; }
+
+/* Profession leads (reuse colors from training case studies) */
+.qip-prof-tag.b-nurse { background: #e8f5ee; color: #036d3a; }
+.qip-prof-tag.b-acp   { background: #d4ecdf; color: #1a5230; }
+.qip-prof-tag.b-doc   { background: #dbeafe; color: #1e40af; }
+.qip-prof-tag.b-pharm { background: #cfe1f2; color: #0c3a6e; }
+.qip-prof-tag.b-ahp   { background: #ede0f5; color: #3a1a6e; }
+.qip-prof-tag.b-pa    { background: #fff3d4; color: #6b4900; }
+
+.qip-outcome {
+  background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ee 100%);
+  border: 1px solid #b3dac0;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+.qip-outcome-label {
+  font-size: .62rem;
+  font-weight: 700;
+  color: var(--sam-green);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: 4px;
+}
+.qip-outcome-text {
+  font-size: .8rem;
+  line-height: 1.5;
+  color: #1a4530;
+}
+.qip-outcome-text strong { color: var(--sam-green); font-weight: 700; }
+
+.qip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.qip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .72rem;
+  font-weight: 600;
+  padding: 6px 11px;
+  border-radius: 4px;
+  background: var(--sam-white);
+  color: var(--sam-body-text);
+  border: 1px solid var(--sam-border);
+  text-decoration: none;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.qip-btn:hover {
+  background: var(--sam-green-pale);
+  color: var(--sam-green);
+  border-color: var(--sam-green-mid);
+}
+.qip-btn svg { width: 12px; height: 12px; }
+.qip-btn-primary {
+  background: var(--sam-green);
+  color: #fff;
+  border-color: var(--sam-green);
+}
+.qip-btn-primary:hover { background: #025530; color: #fff; }
+
+/* Submit section */
+.submit-banner {
+  background: linear-gradient(135deg, #036d3a 0%, #2f7653 100%);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+.sb-banner-icon {
+  width: 38px; height: 38px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sb-banner-icon svg { width: 22px; height: 22px; color: #fff; }
+.sb-banner-text h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px 0;
+}
+.sb-banner-text p {
+  font-size: .82rem;
+  color: rgba(255,255,255,.9);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.sub-h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sam-heading);
+  margin: 18px 0 10px 0;
+}
+.sub-intro {
+  font-size: .82rem;
+  color: var(--sam-body-text);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.submit-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.ss-step {
+  display: flex;
+  gap: 14px;
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-left: 4px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.ss-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--sam-green);
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ss-content h4 {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--sam-heading);
+  margin: 2px 0 4px 0;
+}
+.ss-content p {
+  font-size: .8rem;
+  color: var(--sam-body-text);
+  line-height: 1.5;
+  margin: 0;
+}
+.ss-content a { color: var(--sam-blue); font-weight: 600; }
+.ss-content a:hover { color: var(--sam-green); }
+
+/* Submission checklist */
+.submit-checklist {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.sc-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 14px;
+  padding: 11px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: .8rem;
+}
+.sc-row:last-child { border-bottom: none; }
+.sc-row:nth-child(odd) { background: #fafafa; }
+.sc-name { color: var(--sam-heading); }
+.sc-fmt {
+  font-size: .68rem;
+  color: var(--sam-muted);
+  font-weight: 500;
+}
+.sc-desc {
+  color: var(--sam-body-text);
+  line-height: 1.45;
+}
+@media(max-width:780px) {
+  .sc-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* CTA */
+.submit-cta {
+  background: var(--sam-green-pale);
+  border: 1px solid var(--sam-green-light);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.submit-cta h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sam-green);
+  margin: 0 0 4px 0;
+}
+.submit-cta p {
+  font-size: .82rem;
+  color: var(--sam-body-text);
+  margin: 0;
+}
+.submit-cta a { color: var(--sam-green); font-weight: 700; }
+.cta-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sam-green);
+  color: #fff !important;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: 11px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.cta-submit-btn:hover { background: #025530; color: #fff !important; }
+.cta-submit-btn svg { width: 16px; height: 16px; }
+
 </style>
 </head>
 <body>
@@ -1562,10 +2012,10 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
     <a href="mdt.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg><span>Professions</span></a>
     <a href="methodology.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/></svg><span>Methodology</span></a>
     <a href="tools.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z"/></svg><span>QI Tools</span></a>
-    <a href="training.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
+    <a href="training.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
     <a href="elearning.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>E-Learning</span></a>
     <a href="audits.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg><span>Audits</span></a>
-    <a href="library.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>QIP Library</span></a>
+    <a href="library.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>QIP Library</span></a>
     <a href="squire.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"/></svg><span>SQUIRE 2.0</span></a>
     <a href="precise.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg><span>PRECISE</span></a>
     <a href="https://www.acutemedicine.org.uk/research-new/"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/></svg><span>Research</span></a>
@@ -1576,151 +2026,607 @@ details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
 
 <div class="page-layout">
 <main>
-<!-- ── TRAINING PROGRAMMES ───────────────────── -->
-<section id="programmes" class="sec">
+
+<!-- ── INTRODUCTION ───────────────────────────── -->
+<section id="library-intro" class="sec">
   <div class="sec-title">
-    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg></div>
-    SAM QI Training Programmes
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg></div>
+    The QIP Library
   </div>
-  <p class="sec-subtitle">Open to all AMU professions — SAM explicitly recruits multi-professional teams, not just individual doctors</p>
+  <p class="sec-subtitle">A growing collection of completed Acute Medicine quality improvement projects, openly shared so AMU teams across the UK can learn from each other</p>
 
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-top-bar"></div>
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-      <h3>Acute Medics as Improvers</h3>
-      <p>A structured programme developed by the SAM-QI Committee specifically for acute medicine professionals. Delivered over four half-day facilitated sessions, with individual coaching in between each, so participants are applying new skills to a real project from day one. The current national cohort is working on eliminating corridor care — a problem most AMU teams encounter daily but struggle to address systematically.</p>
-      <p style="margin-top:10px;font-size:.78rem;color:var(--sam-muted)">
-        ⏱ 4 half-days + coaching &nbsp;·&nbsp; 🌐 Online / blended &nbsp;·&nbsp; 👥 Nurses, ACPs, AHPs, Pharmacists, PAs &amp; Doctors
-      </p>
-      <a href="https://www.acutemedicine.org.uk/sam-events/" class="card-link">View upcoming dates →</a>
-    </div>
-
-    <div class="card">
-      <div class="card-top-bar teal"></div>
-      <div class="card-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857"/></svg></div>
-      <h3>Acute Medics Leading Improvement</h3>
-      <p>Developed for those who have completed the core programme or have equivalent QI experience and are ready to lead transformation at a departmental or Trust level. The focus shifts from running a single project to building the conditions under which improvement becomes self-sustaining — working with clinical leads, service managers, and patient partners to embed change into the fabric of the AMU rather than depending on one individual.</p>
-      <p style="margin-top:10px;font-size:.78rem;color:var(--sam-muted)">
-        ⭐ All professions welcome &nbsp;·&nbsp; 📜 Portfolio &amp; revalidation evidence &nbsp;·&nbsp; 🔄 Cross-professional leadership
-      </p>
-      <a href="https://www.acutemedicine.org.uk/sam-events/" class="card-link">View upcoming dates →</a>
-    </div>
+  <div class="intro-panel">
+    <p><strong>Quality improvement is a team sport — and so is sharing what works.</strong> If you've completed a QI project on your AMU, the rest of the SAM community wants to learn from it. The QIP Library is a curated catalogue of completed AMU improvement work, reviewed and indexed by the SAM-QI Committee so other teams can quickly find projects relevant to their own context.</p>
   </div>
 
-  <div class="note-box">
-    📅 Full details and booking for both programmes are added to the <a href="https://www.acutemedicine.org.uk/sam-events/">SAM Events page</a> as dates are confirmed. SAM members receive priority booking and reduced rates.
+  <div class="lib-stats">
+    <div class="lib-stat"><div class="ls-num">8</div><div class="ls-lbl">Featured Projects</div></div>
+    <div class="lib-stat"><div class="ls-num">6</div><div class="ls-lbl">Professional Leads</div></div>
+    <div class="lib-stat"><div class="ls-num">11</div><div class="ls-lbl">Domains Covered</div></div>
+    <div class="lib-stat"><div class="ls-num">SQUIRE</div><div class="ls-lbl">Reporting Standard</div></div>
   </div>
 </section>
 
-<!-- ── CASE STUDIES ──────────────────────────── -->
-<section id="casestudies" class="sec">
+<!-- ── FILTER BAR (visual only — search/filter logic could be added later) ── -->
+<section id="library-browse" class="sec">
   <div class="sec-title">
-    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg></div>
-    QI Case Studies in Acute Medicine
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"/></svg></div>
+    Browse Projects
   </div>
-  <p class="sec-subtitle">Four examples showing how nurses, ACPs, pharmacists, and AHPs lead improvement — not just as team members, but as project leads</p>
+  <p class="sec-subtitle">Filter by professional lead, NHS strategic domain, or QI methodology — every project includes the AIM statement, methods, results, and contact details for the team</p>
 
-  <div class="grid-2">
+  <div class="lib-filters">
+    <div class="lf-group">
+      <span class="lf-label">Lead Profession</span>
+      <span class="lf-tag active">All</span>
+      <span class="lf-tag">Nursing</span>
+      <span class="lf-tag">ACPs</span>
+      <span class="lf-tag">Doctors</span>
+      <span class="lf-tag">Pharmacy</span>
+      <span class="lf-tag">AHPs</span>
+      <span class="lf-tag">PAs</span>
+    </div>
+    <div class="lf-group">
+      <span class="lf-label">Strategic Domain</span>
+      <span class="lf-tag active">All</span>
+      <span class="lf-tag">Patient Safety</span>
+      <span class="lf-tag">Flow</span>
+      <span class="lf-tag">Productivity</span>
+      <span class="lf-tag">Reliability</span>
+      <span class="lf-tag">Cost &amp; Finance</span>
+      <span class="lf-tag">Sustainability</span>
+      <span class="lf-tag">Frailty</span>
+    </div>
+    <div class="lf-group">
+      <span class="lf-label">QI Methodology</span>
+      <span class="lf-tag active">All</span>
+      <span class="lf-tag">PDSA</span>
+      <span class="lf-tag">Lean</span>
+      <span class="lf-tag">Driver Diagram</span>
+      <span class="lf-tag">FMEA</span>
+      <span class="lf-tag">SQUIRE 2.0</span>
+    </div>
+  </div>
+</section>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-green">SDEC</span>
-        <span class="badge b-acp">ACP-led</span>
+<!-- ── PROJECT CARDS ─────────────────────────────── -->
+<section id="library-projects" class="sec">
+  <div class="sec-title">
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"/></svg></div>
+    Featured Projects
+  </div>
+  <p class="sec-subtitle">Each project below is presented as it was submitted, with the SAM-QI Committee's structured review</p>
+
+  <div class="qip-grid">
+
+    <!-- Project 1: Sepsis Six Grab Bag -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">University Hospitals Birmingham · 2024</span>
       </div>
-      <div class="case-body">
-        <h4>ACP-led SDEC pathway redesign reduces unnecessary admissions</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by an acute medicine ACP in collaboration with the AMU consultant team and ED senior charge nurse</p>
-        <p>An ACP-led multi-PDSA project redesigning the SDEC referral and streaming pathway — including a direct GP phone line triaged by the ACP team, standardised acceptance criteria, and a same-day discharge protocol co-developed with nursing. The ACP's position across the medical-nursing interface was central to making the pathway work in practice.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↓28%</span><small>ED attendance rate</small></div>
-          <div class="metric-box"><span class="mnum">62%</span><small>SDEC utilisation</small></div>
+      <div class="qip-card-body">
+        <h3>Nurse-led Sepsis Six Grab Bag on the AMU</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-nurse">Nursing-led</span>
+          <span class="qip-team">Multi-professional team — Senior nurse leads, junior doctors, AMU pharmacist</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will improve antibiotic-within-1-hour for AMU sepsis patients from 34% to 75% by 31 March 2024 via a nurse-led Sepsis Six grab bag.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-safe">Patient Safety</span>
+            <span class="qip-d-tag d-rely">Reliability</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">PDSA × 4</span>
+            <span class="qip-d-tag d-meth">Driver Diagram</span>
+            <span class="qip-d-tag d-meth">Run Chart</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Safe</span>
+            <span class="qip-d-tag d-who">Timely</span>
+            <span class="qip-d-tag d-who">Effective</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>78%</strong> of patients received antibiotics within 1 hour at study end (vs 34% baseline) — sustained at 12 months. NEWS2 escalation timing also improved from median 22 min to 8 min.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg>Full Report (PDF)</a>
+          <a href="#" class="qip-btn"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>Run Chart</a>
+          <a href="#" class="qip-btn"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/></svg>SQUIRE Checklist</a>
+          <a href="#" class="qip-btn">Contact Team</a>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 North-West AMU · 2023</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med J ↗</a>
-      </div>
-    </div>
+    </article>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-red">Sepsis</span>
-        <span class="badge b-nurse">Nursing-led</span>
+    <!-- Project 2: SDEC Pathway -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">Manchester University NHS FT · 2024</span>
       </div>
-      <div class="case-body">
-        <h4>Nursing-led Sepsis Grab Bag initiative — point-of-care bundle completion</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Designed and led by Band 7 ward nurse with clinical sponsor support from the AMU consultant and pharmacy input for the PGD</p>
-        <p>A Band 7 nurse-initiated project placing pre-assembled Sepsis Grab Bags at the point of care, backed by a nurse-delivered competency programme covering phlebotomy, IV cannulation, and PGD for IV fluids. The nursing team owned both the design and the training — the consultant's role was clinical sponsorship and QIPAT sign-off rather than project leadership. Run charts showed compliance rising from 34% to 81%.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">81%</span><small>Sepsis 6 compliance</small></div>
-          <div class="metric-box"><span class="mnum">↓40min</span><small>Time to antibiotic</small></div>
+      <div class="qip-card-body">
+        <h3>Expanding Same Day Emergency Care via ACP-led front-door triage</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-acp">ACP-led</span>
+          <span class="qip-team">Multi-professional team — ACPs, AMU consultants, ED liaison nurse, AMU coordinator</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will increase SDEC conversion rate for adult medical referrals from 18% to 35% within 6 months through ACP-led front-door triage.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-flow">Flow</span>
+            <span class="qip-d-tag d-prod">Productivity</span>
+            <span class="qip-d-tag d-cost">Cost &amp; Finance</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">Lean</span>
+            <span class="qip-d-tag d-meth">Process Mapping</span>
+            <span class="qip-d-tag d-meth">PDSA × 3</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Timely</span>
+            <span class="qip-d-tag d-who">Efficient</span>
+            <span class="qip-d-tag d-who">Integrated</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>38%</strong> SDEC conversion rate at 6 months (target 35%). <strong>1,240 bed-days</strong> released over the project period. ED 4-hour standard improved by 6 percentage points for medical patients.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg>Full Report (PDF)</a>
+          <a href="#" class="qip-btn"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5z"/></svg>Process Map</a>
+          <a href="#" class="qip-btn"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5z"/></svg>Driver Diagram</a>
+          <a href="#" class="qip-btn">Contact Team</a>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 UHB THINK SEPSIS · Midlands</span>
-        <a href="https://www.acutemedicine.org.uk/samba-new/">SAMBA data ↗</a>
-      </div>
-    </div>
+    </article>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-pharm">Pharmacy-led</span>
-        <span class="badge b-green">Safety</span>
+    <!-- Project 3: Medicines Reconciliation -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">Leeds Teaching Hospitals · 2023</span>
       </div>
-      <div class="case-body">
-        <h4>Pharmacist-led medicines reconciliation within 24 hours of admission</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by the AMU clinical pharmacist team with nursing support for data collection and junior doctor engagement for prescribing changes</p>
-        <p>A clinical pharmacist-initiated project addressing medicines reconciliation failures on admission. Three PDSA cycles tested different models for pharmacy review timing and documentation, working with nursing staff who identified the practical barriers during ward rounds. Run charts showed reconciliation within 24 hours improving from 41% to 88%, with a measurable reduction in prescribing discrepancies.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↑88%</span><small>Reconciliation within 24h</small></div>
-          <div class="metric-box"><span class="mnum">↓62%</span><small>Prescribing discrepancies</small></div>
+      <div class="qip-card-body">
+        <h3>Pharmacy-led medicines reconciliation within 24 hours of admission</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-pharm">Pharmacy-led</span>
+          <span class="qip-team">Multi-professional team — AMU pharmacists, pharmacy technicians, AMU consultants, ward nurses</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will increase the proportion of AMU patients with medicines reconciliation completed within 24 hours of admission from 52% to 90% within 6 months.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-safe">Patient Safety</span>
+            <span class="qip-d-tag d-rely">Reliability</span>
+            <span class="qip-d-tag d-cost">Cost &amp; Finance</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">PDSA × 5</span>
+            <span class="qip-d-tag d-meth">Run Chart</span>
+            <span class="qip-d-tag d-meth">Driver Diagram</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Safe</span>
+            <span class="qip-d-tag d-who">Effective</span>
+            <span class="qip-d-tag d-who">Timely</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>89%</strong> medicines reconciliation within 24 hours at 6 months. Drug-related incidents reduced by 31% over the same period. Pharmacy technician role expanded as a result.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"/></svg>Full Report (PDF)</a>
+          <a href="#" class="qip-btn">Run Chart</a>
+          <a href="#" class="qip-btn">SQUIRE Checklist</a>
+          <a href="#" class="qip-btn">Contact Team</a>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 East Midlands AMU · 2023</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med Journal ↗</a>
-      </div>
-    </div>
+    </article>
 
-    <div class="case-card">
-      <div class="case-card-top">
-        <span class="badge b-teal">Frailty</span>
-        <span class="badge b-ahp">AHP-led</span>
+    <!-- Project 4: Functional Assessment / Frailty -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">Frimley Health NHS FT · 2024</span>
       </div>
-      <div class="case-body">
-        <h4>OT-led early functional assessment reducing avoidable AMU length of stay</h4>
-        <p class="case-lead"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Led by the AMU occupational therapy team in collaboration with physiotherapy, acute medicine, and social work — with patient co-design throughout</p>
-        <p>An OT-initiated project implementing structured functional assessment within four hours of admission for all patients over 75 — triggering earlier therapy input, social work referral, and discharge planning conversations. The team co-designed the screening tool with six patients during testing. The project demonstrated that AHP-initiated improvement directly reduces medical LOS, not just therapy waits.</p>
-        <div class="case-metrics">
-          <div class="metric-box"><span class="mnum">↓1.4d</span><small>Mean LOS (75+)</small></div>
-          <div class="metric-box"><span class="mnum">↑81%</span><small>Assessment within 4h</small></div>
+      <div class="qip-card-body">
+        <h3>OT-led functional assessment to reduce hospital-acquired deconditioning</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-ahp">AHP-led (Occupational Therapy)</span>
+          <span class="qip-team">Multi-professional team — OTs, physios, AMU nursing, ACPs, geriatricians</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will reduce the proportion of over-65s losing one ADL during AMU stay from 32% to 15% within 9 months by introducing OT functional assessment within 24h.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-frl">Frailty &amp; Older People</span>
+            <span class="qip-d-tag d-flow">Flow</span>
+            <span class="qip-d-tag d-expr">Patient Experience</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">Driver Diagram</span>
+            <span class="qip-d-tag d-meth">PDSA × 3</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">People-Centred</span>
+            <span class="qip-d-tag d-who">Effective</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>18%</strong> ADL loss at study end (vs 32% baseline). Mean LoS for over-65s reduced by 1.4 days. Discharge to usual residence rate improved from 67% to 79%.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary">Full Report (PDF)</a>
+          <a href="#" class="qip-btn">Driver Diagram</a>
+          <a href="#" class="qip-btn">Contact Team</a>
         </div>
       </div>
-      <div class="case-footer">
-        <span>📍 Yorkshire AMU · 2024</span>
-        <a href="https://acutemedjournal.co.uk/">Acute Med Journal ↗</a>
+    </article>
+
+    <!-- Project 5: Multi-prof clerking -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">Royal Liverpool University Hospital · 2024</span>
       </div>
-    </div>
+      <div class="qip-card-body">
+        <h3>Multi-professional clerking model with consultant front-door triage</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-acp">ACP &amp; Consultant joint lead</span>
+          <span class="qip-team">All AMU professions involved — clerking redesigned around team competencies</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will reduce mean clerking-to-consultant-decision time from 4.2 hours to 2 hours within 4 months through a multi-professional model with senior triage at the front door.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-prod">Productivity</span>
+            <span class="qip-d-tag d-rely">Reliability</span>
+            <span class="qip-d-tag d-work">Workforce</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">Lean</span>
+            <span class="qip-d-tag d-meth">Driver Diagram</span>
+            <span class="qip-d-tag d-meth">FMEA</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Timely</span>
+            <span class="qip-d-tag d-who">Efficient</span>
+            <span class="qip-d-tag d-who">Effective</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>1.9 hours</strong> mean clerking-to-decision time (target 2h). Junior doctor satisfaction (GMC NTS) improved from 68% to 84%. Discharge before noon rate up 14%.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary">Full Report (PDF)</a>
+          <a href="#" class="qip-btn">FMEA</a>
+          <a href="#" class="qip-btn">SQUIRE Checklist</a>
+          <a href="#" class="qip-btn">Contact Team</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 6: Discharge summary -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">Royal Cornwall Hospitals · 2023</span>
+      </div>
+      <div class="qip-card-body">
+        <h3>PA-led discharge summary quality improvement</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-pa">Physician Associate-led</span>
+          <span class="qip-team">PAs with senior medical oversight; pharmacy and GP feedback included</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will increase the proportion of complete discharge summaries (all 7 fields populated) sent to GP within 24 hours from 61% to 85% within 4 months.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-rely">Reliability</span>
+            <span class="qip-d-tag d-expr">Patient Experience</span>
+            <span class="qip-d-tag d-sys">System Integration</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">Lean</span>
+            <span class="qip-d-tag d-meth">Audit cycles</span>
+            <span class="qip-d-tag d-meth">PDSA × 3</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Integrated</span>
+            <span class="qip-d-tag d-who">Effective</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>87%</strong> complete discharge summaries within 24 hours at 4 months. GP feedback survey scores improved from 6.2 to 8.1 (out of 10). Reduced GP follow-up calls back to AMU by 38%.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary">Full Report (PDF)</a>
+          <a href="#" class="qip-btn">SQUIRE Checklist</a>
+          <a href="#" class="qip-btn">Contact Team</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 7: NEWS2 -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">North Middlesex University Hospital · 2024</span>
+      </div>
+      <div class="qip-card-body">
+        <h3>Nurse-led NEWS2 ≥7 escalation reliability</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-nurse">Nursing-led</span>
+          <span class="qip-team">AMU senior nurses with medical and outreach team collaboration</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will increase the proportion of NEWS2 ≥7 episodes escalated to a senior reviewer within 30 minutes from 67% to 95% within 9 months.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-safe">Patient Safety</span>
+            <span class="qip-d-tag d-rely">Reliability</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">PDSA × 4</span>
+            <span class="qip-d-tag d-meth">Run Chart (SPC)</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Safe</span>
+            <span class="qip-d-tag d-who">Timely</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>93%</strong> escalation within 30 minutes at 9 months (sustained). Cardiac arrests on the AMU reduced by 4 events year-on-year. Outreach team referral pathway redesigned as a result.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary">Full Report (PDF)</a>
+          <a href="#" class="qip-btn">SPC Chart</a>
+          <a href="#" class="qip-btn">Contact Team</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 8: Sustainability / Inhalers -->
+    <article class="qip-card">
+      <div class="qip-card-head">
+        <span class="qip-status reviewed">SAM-QI Reviewed ✓</span>
+        <span class="qip-card-meta">Sheffield Teaching Hospitals · 2024</span>
+      </div>
+      <div class="qip-card-body">
+        <h3>Reducing carbon footprint of AMU inhaler prescribing</h3>
+        <div class="qip-leads">
+          <span class="qip-prof-tag b-pharm">Pharmacy-led</span>
+          <span class="qip-team">AMU pharmacists, respiratory consultants, AMU consultants, sustainability lead</span>
+        </div>
+
+        <div class="qip-aim">
+          <strong>AIM:</strong> &ldquo;We will reduce the proportion of AMU asthma/COPD discharges prescribed pMDI (rather than DPI) where clinically appropriate from 78% to 50% within 12 months in line with the NHS Green Plan.&rdquo;
+        </div>
+
+        <div class="qip-meta-grid">
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">DOMAINS</span>
+            <span class="qip-d-tag d-sust">Sustainability</span>
+            <span class="qip-d-tag d-cost">Cost &amp; Finance</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">METHODS</span>
+            <span class="qip-d-tag d-meth">Driver Diagram</span>
+            <span class="qip-d-tag d-meth">PDSA × 3</span>
+          </div>
+          <div class="qip-meta-row">
+            <span class="qip-meta-label">WHO</span>
+            <span class="qip-d-tag d-who">Effective</span>
+            <span class="qip-d-tag d-who">Efficient</span>
+          </div>
+        </div>
+
+        <div class="qip-outcome">
+          <div class="qip-outcome-label">KEY OUTCOME</div>
+          <div class="qip-outcome-text"><strong>52%</strong> pMDI prescribing at 12 months. <strong>28% reduction</strong> in carbon footprint of AMU inhaler prescribing. Estimated <strong>£42k annual saving</strong> on inhaler spend.</div>
+        </div>
+
+        <div class="qip-actions">
+          <a href="#" class="qip-btn qip-btn-primary">Full Report (PDF)</a>
+          <a href="#" class="qip-btn">Driver Diagram</a>
+          <a href="#" class="qip-btn">Contact Team</a>
+        </div>
+      </div>
+    </article>
 
   </div>
 
-  <div style="text-align:center;margin-top:20px">
-    <a href="https://acutemedjournal.co.uk/" class="btn-green-outline">
-      Browse Acute Medicine Journal for more QI publications ↗
+  <p style="font-size:.78rem;color:var(--sam-muted);font-style:italic;margin-top:14px;text-align:center">More projects added every quarter following SAM-QI Committee review · Sample projects shown above are illustrative of the format and content expected in submissions</p>
+</section>
+
+<!-- ── SUBMIT YOUR PROJECT ─────────────────────── -->
+<section id="library-submit" class="sec">
+  <div class="sec-title">
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></div>
+    Submit Your Project
+  </div>
+  <p class="sec-subtitle">If you've completed a QI project on your AMU, share what worked — and what didn't — with the rest of the SAM community</p>
+
+  <div class="submit-banner">
+    <div class="sb-banner-icon">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd"/></svg>
+    </div>
+    <div class="sb-banner-text">
+      <h3>Open submissions to all AMU professions</h3>
+      <p>The QIP Library is open to nurses, doctors, ACPs, pharmacists, AHPs, and physician associates from any UK Acute Medical Unit. Multi-professional submissions are particularly welcomed.</p>
+    </div>
+  </div>
+
+  <h3 class="sub-h3">How submission works</h3>
+  <div class="submit-steps">
+    <div class="ss-step">
+      <div class="ss-num">1</div>
+      <div class="ss-content">
+        <h4>Complete your project to the SQUIRE 2.0 standard</h4>
+        <p>Use the <a href="squire.html">SQUIRE 2.0 framework</a> to structure your write-up and the <a href="tools.html">SAM QI Toolkit</a> for your AIM canvas, run charts, driver diagrams, and reporting checklist.</p>
+      </div>
+    </div>
+
+    <div class="ss-step">
+      <div class="ss-num">2</div>
+      <div class="ss-content">
+        <h4>Prepare your submission package</h4>
+        <p>Email a single ZIP file containing the items in the submission template below to <a href="mailto:qi@acutemedicine.org.uk"><strong>qi@acutemedicine.org.uk</strong></a> with subject line <em>&ldquo;QIP Library Submission — [Trust] — [Project Title]&rdquo;</em>.</p>
+      </div>
+    </div>
+
+    <div class="ss-step">
+      <div class="ss-num">3</div>
+      <div class="ss-content">
+        <h4>SAM-QI Committee review</h4>
+        <p>Your submission is reviewed quarterly by the SAM-QI Committee against the SQUIRE 2.0 reporting standard and the PRECISE framework for measure quality. You will receive feedback and a publication decision within 6 weeks of the next review meeting.</p>
+      </div>
+    </div>
+
+    <div class="ss-step">
+      <div class="ss-num">4</div>
+      <div class="ss-content">
+        <h4>Open publication</h4>
+        <p>Accepted projects are published in this library under a Creative Commons CC BY-NC-SA licence — open for other AMU teams to read, reference, and adapt for their own context, with attribution to your team.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-h3">Submission template</h3>
+  <p class="sub-intro">Your submission package should be a single ZIP file containing the following items, named clearly. The <strong>bold items</strong> are required; the others are strongly encouraged.</p>
+
+  <div class="submit-checklist">
+    <div class="sc-row">
+      <div class="sc-name"><strong>1. Cover sheet</strong></div>
+      <div class="sc-desc">Project title, Trust, lead profession(s), team members and roles, completion date, and the key contact for follow-up enquiries</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name"><strong>2. Full SQUIRE-formatted report</strong> <span class="sc-fmt">(PDF, max 8 pages)</span></div>
+      <div class="sc-desc">Title, abstract, introduction (problem &amp; rationale), methods (context, intervention, measures, analysis, ethics), results, discussion, funding</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name"><strong>3. Completed SQUIRE checklist</strong> <span class="sc-fmt">(Word, our Tool 8)</span></div>
+      <div class="sc-desc">All 18 items addressed, with page references in your report</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name"><strong>4. AIM Statement</strong> <span class="sc-fmt">(Word, our Tool 1)</span></div>
+      <div class="sc-desc">SMART AIM as completed at the start of the project</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name"><strong>5. Methods evidence</strong></div>
+      <div class="sc-desc">Driver diagram, fishbone analysis, FMEA, or other methodology artefact (whichever you used)</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name"><strong>6. Run chart or SPC chart</strong> <span class="sc-fmt">(Excel, our Tool 3)</span></div>
+      <div class="sc-desc">Time-series data showing baseline, intervention(s), and post-intervention performance</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name">7. PRECISE scorecard</div>
+      <div class="sc-desc">Self-assessment of your measures against the PRECISE framework (our Tool 7)</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name">8. Information governance statement</div>
+      <div class="sc-desc">Confirmation of QI vs research classification, HRA decision tool output if relevant, and Trust Caldicott approval if patient-level data was used</div>
+    </div>
+    <div class="sc-row">
+      <div class="sc-name">9. Authorship and consent statement</div>
+      <div class="sc-desc">Confirmation that all team members consent to publication, and clarity on how the project should be cited</div>
+    </div>
+  </div>
+
+  <div class="submit-cta">
+    <div>
+      <h3>Ready to share your project?</h3>
+      <p>Email your ZIP submission package to <a href="mailto:qi@acutemedicine.org.uk?subject=QIP Library Submission"><strong>qi@acutemedicine.org.uk</strong></a> with the subject line shown above.</p>
+    </div>
+    <a href="mailto:qi@acutemedicine.org.uk?subject=QIP Library Submission&amp;body=Project Title:%0D%0A%0D%0ATrust:%0D%0A%0D%0ALead Profession(s):%0D%0A%0D%0AKey Contact (name, role, email):%0D%0A%0D%0AAttachments:%0D%0A- Cover sheet%0D%0A- Full SQUIRE-formatted PDF report%0D%0A- Completed SQUIRE checklist (Word)%0D%0A- AIM Statement (Word)%0D%0A- Methods evidence (Driver Diagram / Fishbone / FMEA)%0D%0A- Run chart or SPC chart (Excel)%0D%0A- PRECISE scorecard%0D%0A- Information governance statement%0D%0A- Authorship and consent statement" class="cta-submit-btn">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+      Email Submission
     </a>
+  </div>
+
+  <div class="note-box" style="margin-top:18px">
+    <strong>Information governance reminder.</strong> All submissions to the QIP Library must comply with your Trust's information governance policies. Patient-level data must be fully anonymised before submission. The SAM-QI Committee will not publish any project that has not had appropriate IG sign-off at the Trust level. If your project was registered as research rather than QI, please submit through the SAM Research pathway instead.
   </div>
 </section>
 
 
 </main>
+
 <aside class="sidebar">
 
   <div class="sb-box">
     <div class="sb-head">QI &amp; Research</div>
     <div class="sb-body">
-      <a href="#intro" class="sb-item active"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>Quality Improvement</a>
-      <a href="library.html" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>QIP Library</a>
+      <a href="index.html" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>Quality Improvement</a>
+      <a href="library.html" class="sb-item active"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg>QIP Library</a>
       <a href="https://www.acutemedicine.org.uk/samba-new/" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>SAMBA</a>
       <a href="https://www.acutemedicine.org.uk/sampler/" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/></svg>SAM-PLER</a>
       <a href="https://www.acutemedicine.org.uk/sitrep/" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm1 5a1 1 0 100 2h7a1 1 0 100-2H4z" clip-rule="evenodd"/></svg>SAM SitRep</a>
