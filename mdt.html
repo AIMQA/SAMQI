@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="All Professions — Society for Acute Medicine Quality Improvement resources for all AMU professions"/>
+<title>All Professions — SAM Quality Improvement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SAM AUTHENTIC DESIGN TOKENS — extracted from site CSS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+:root {
+  /* Brand greens — fl-accent from CSS vars */
+  --sam-green:       #036d3a;   /* primary brand – fl-accent */
+  --sam-green-mid:   #2f7653;   /* secondary / borders */
+  --sam-green-light: #e8f5ee;   /* tinted background */
+  --sam-green-pale:  #f0f9f4;   /* very light tint */
+
+  /* Link / nav blue — fl-topbar-link */
+  --sam-blue:        #428bca;
+
+  /* Backgrounds */
+  --sam-body-bg:     #f2f2f2;   /* fl-body-bg */
+  --sam-white:       #ffffff;
+  --sam-grey-light:  #f9f9f9;
+  --sam-grey-mid:    #f2f2f2;
+
+  /* Text */
+  --sam-heading:     #333333;   /* fl-heading-text */
+  --sam-body-text:   #555555;
+  --sam-muted:       #777777;
+
+  /* Borders */
+  --sam-border:      #e0e0e0;
+  --sam-border-dark: #d0d0d0;
+
+  /* Font */
+  --font: 'Mukta', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --radius: 4px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESET & BASE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--sam-body-text);
+  background: var(--sam-body-bg);
+}
+a { color: var(--sam-blue); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--sam-green); text-decoration: underline; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4, h5 {
+  font-family: var(--font);
+  color: var(--sam-heading);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   UTILITY
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TOP HEADER — logo + nav + buttons (white, SAM style)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.site-header {
+  background: var(--sam-white);
+  border-bottom: 2px solid var(--sam-green-mid);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 6px rgba(0,0,0,.08);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 16px;
+}
+/* Logo */
+.site-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none !important;
+}
+.site-logo img {
+  height: 52px;
+  width: auto;
+}
+.logo-fallback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon-wrap {
+  width: 48px; height: 48px;
+  background: var(--sam-green);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-icon-wrap svg { width: 30px; height: 30px; }
+.logo-words .w1 {
+  font-size: 1rem; font-weight: 700;
+  color: var(--sam-green);
+  display: block; line-height: 1.2;
+}
+.logo-words .w2 {
+  font-size: .72rem; font-weight: 400;
+  color: var(--sam-muted);
+  display: block;
+}
+
+/* Nav */
+.site-nav { flex: 1; display: flex; justify-content: center; }
+.nav-list { display: flex; list-style: none; gap: 0; }
+.nav-list > li { position: relative; }
+.nav-list > li > a {
+  display: block;
+  padding: 0 13px;
+  height: 72px;
+  line-height: 72px;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--sam-heading);
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color .2s, border-color .2s;
+}
+.nav-list > li > a:hover,
+.nav-list > li.open > a {
+  color: var(--sam-green);
+  border-color: var(--sam-green);
+  text-decoration: none;
+}
+.nav-list > li > a.active-qi {
+  color: var(--sam-green);
+  border-color: var(--sam-green);
+  font-weight: 700;
+}
+
+/* Dropdown */
+.dropdown { position: absolute; top: 100%; left: 0; min-width: 220px;
+  background: var(--sam-white); border: 1px solid var(--sam-border);
+  border-top: 3px solid var(--sam-green);
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+  display: none; z-index: 300; padding: 6px 0; }
+.nav-list > li:hover .dropdown { display: block; }
+.dropdown li { list-style: none; }
+.dropdown li a {
+  display: block; padding: 8px 16px;
+  font-size: .84rem; color: var(--sam-heading);
+  transition: background .15s, color .15s;
+}
+.dropdown li a:hover {
+  background: var(--sam-green-light);
+  color: var(--sam-green);
+  text-decoration: none;
+}
+.dropdown hr { border: none; border-top: 1px solid var(--sam-border); margin: 4px 0; }
+
+/* Header buttons */
+.header-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+.btn-join-sam {
+  background: var(--sam-green);
+  color: var(--sam-white) !important;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  font-size: .84rem;
+  font-weight: 700;
+  transition: background .2s;
+  display: inline-block;
+}
+.btn-join-sam:hover { background: #025a30; text-decoration: none !important; }
+.btn-login {
+  border: 1px solid var(--sam-border-dark);
+  color: var(--sam-heading) !important;
+  padding: 7px 16px;
+  border-radius: var(--radius);
+  font-size: .84rem;
+  font-weight: 600;
+  transition: border-color .2s, color .2s;
+}
+.btn-login:hover { border-color: var(--sam-green); color: var(--sam-green) !important; text-decoration: none; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PAGE HERO BANNER — SAM's green gradient style
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.page-hero {
+  background: linear-gradient(135deg, #025530 0%, #036d3a 50%, #2f7653 100%);
+  padding: 52px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='38' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+}
+.hero-content { position: relative; }
+.breadcrumb-nav {
+  display: flex; gap: 7px; align-items: center;
+  font-size: .8rem;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.breadcrumb-nav a { color: rgba(255,255,255,.7); }
+.breadcrumb-nav a:hover { color: #fff; text-decoration: none; }
+.breadcrumb-nav span { color: rgba(255,255,255,.4); }
+.hero-content h1 {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.hero-content .hero-lead {
+  color: rgba(255,255,255,.82);
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+.hero-badge {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.85);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: .78rem;
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px;
+  background: #6adf9e;
+  border-radius: 50%;
+}
+
+/* Wave SVG bottom of hero */
+.hero-wave {
+  display: block;
+  width: 100%;
+  margin-bottom: -2px;
+  line-height: 0;
+}
+.hero-wave svg { display: block; width: 100%; }
+
+/* Stats row below hero */
+.stats-row {
+  background: var(--sam-white);
+  border-bottom: 1px solid var(--sam-border);
+  padding: 0;
+}
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  divide-x: solid var(--sam-border);
+}
+@media(max-width:700px){ .stats-inner { grid-template-columns: 1fr 1fr; } }
+.stat-cell {
+  text-align: center;
+  padding: 20px 16px;
+  border-right: 1px solid var(--sam-border);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sam-green);
+  line-height: 1;
+  display: block;
+}
+.stat-lbl {
+  font-size: .75rem;
+  color: var(--sam-muted);
+  display: block;
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ICON NAV BAR — full-width, icon + label, top of page
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.icon-nav {
+  background: var(--sam-green);
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.icon-nav-inner {
+  display: flex;
+  align-items: stretch;
+}
+.icon-nav a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 2px 5px;
+  color: rgba(255,255,255,.7);
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  transition: background .15s, color .15s, border-color .15s;
+  min-width: 0;
+}
+.icon-nav a:hover {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  border-color: #fff;
+  text-decoration: none;
+}
+.icon-nav a.active {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255,255,255,.15);
+}
+.icon-nav a svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.icon-nav a span {
+  font-size: .58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+  line-height: 1;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MAIN LAYOUT
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.page-layout {
+  max-width: 1200px; margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: start;
+}
+@media(max-width:900px){ .page-layout { grid-template-columns: 1fr; } }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SECTION HEADINGS — SAM style green underline
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.sec { margin-bottom: 50px; }
+.sec-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sam-heading);
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--sam-green-mid);
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-title .title-icon {
+  width: 34px; height: 34px;
+  background: var(--sam-green);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sec-title .title-icon svg { width: 18px; height: 18px; color: #fff; }
+.sec-subtitle {
+  font-size: .9rem;
+  color: var(--sam-muted);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   INTRO CONTENT BOX — SAM left-border style
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.intro-panel {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-left: 4px solid var(--sam-green-mid);
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  border-radius: var(--radius);
+}
+.intro-panel p {
+  color: var(--sam-body-text);
+  margin-bottom: 14px;
+  font-size: .95rem;
+}
+.intro-panel p:last-child { margin-bottom: 0; }
+.intro-panel a { color: var(--sam-blue); font-weight: 600; }
+.intro-panel a:hover { color: var(--sam-green); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTENT CARDS — white, SAM border style
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: box-shadow .2s, border-color .2s;
+}
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--sam-green-mid); }
+.card-top-bar { height: 3px; background: var(--sam-green); margin: -24px -24px 20px; border-radius: var(--radius) var(--radius) 0 0; }
+.card-top-bar.teal { background: #2f7653; }
+.card-top-bar.blue { background: var(--sam-blue); }
+.card-icon-wrap {
+  width: 42px; height: 42px;
+  background: var(--sam-green-light);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.card-icon-wrap svg { width: 20px; height: 20px; color: var(--sam-green); }
+.card h3 { font-size: 1.05rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 8px; }
+.card h4 { font-size: .96rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 8px; }
+.card p { font-size: .875rem; color: var(--sam-body-text); line-height: 1.65; }
+.card a.card-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 14px;
+  font-size: .83rem; font-weight: 700;
+  color: var(--sam-green);
+}
+.card a.card-link:hover { color: #025a30; text-decoration: underline; }
+
+/* Card grids */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media(max-width:700px){ .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr; } }
+@media(max-width:900px) and (min-width:701px){ .grid-3 { grid-template-columns: 1fr 1fr; } }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SAM MODEL FOR IMPROVEMENT — 3 QUESTIONS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.q-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  position: relative;
+  transition: box-shadow .2s, border-color .2s;
+}
+.q-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--sam-green-mid); }
+.q-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--sam-green);
+}
+.q-card:nth-child(2)::before { background: #2f7653; }
+.q-card:nth-child(3)::before { background: var(--sam-blue); }
+.q-num {
+  font-size: 2.5rem; font-weight: 700;
+  color: rgba(3,109,58,.1);
+  line-height: 1; margin-bottom: 6px;
+}
+.q-card h4 { font-size: .9rem; font-weight: 700; color: var(--sam-green); margin-bottom: 8px; }
+.q-card p { font-size: .8rem; color: var(--sam-body-text); line-height: 1.6; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PDSA PANEL
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.pdsa-panel {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-left: 4px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.pdsa-panel h3 { font-size: 1.1rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 6px; }
+.pdsa-panel p { font-size: .875rem; color: var(--sam-body-text); margin-bottom: 18px; }
+.pdsa-layout { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: center; }
+@media(max-width:600px){ .pdsa-layout { grid-template-columns: 1fr; } }
+.pdsa-svg { width: 180px; height: 180px; flex-shrink: 0; }
+.pdsa-phases { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pdsa-phase {
+  background: var(--sam-grey-light);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  border-left: 3px solid;
+}
+.pdsa-phase.plan { border-color: var(--sam-green); }
+.pdsa-phase.do   { border-color: #2f7653; }
+.pdsa-phase.study{ border-color: var(--sam-blue); }
+.pdsa-phase.act  { border-color: #1a6b9a; }
+.pdsa-phase strong { font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 4px; }
+.pdsa-phase.plan strong { color: var(--sam-green); }
+.pdsa-phase.do   strong { color: #2f7653; }
+.pdsa-phase.study strong { color: var(--sam-blue); }
+.pdsa-phase.act  strong { color: #1a6b9a; }
+.pdsa-phase p { font-size: .77rem; color: var(--sam-body-text); line-height: 1.5; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   STEP FLOW
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.step-flow { display: flex; gap: 0; position: relative; margin: 20px 0; }
+.step-flow::before {
+  content: '';
+  position: absolute; top: 20px; left: 20px; right: 20px; height: 2px;
+  background: linear-gradient(90deg, var(--sam-green), var(--sam-blue));
+  z-index: 0;
+}
+.step-item { flex: 1; text-align: center; position: relative; z-index: 1; }
+.step-circle {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--sam-green);
+  color: #fff; font-weight: 700; font-size: .88rem;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 8px;
+  border: 3px solid var(--sam-white);
+  box-shadow: 0 0 0 2px var(--sam-green);
+}
+.step-item:nth-child(2) .step-circle { background: #2f7653; box-shadow: 0 0 0 2px #2f7653; }
+.step-item:nth-child(3) .step-circle { background: #428bca; box-shadow: 0 0 0 2px #428bca; }
+.step-item:nth-child(4) .step-circle { background: #1a6b9a; box-shadow: 0 0 0 2px #1a6b9a; }
+.step-item:nth-child(5) .step-circle { background: #155f8a; box-shadow: 0 0 0 2px #155f8a; }
+.step-label { font-size: .72rem; font-weight: 700; color: var(--sam-heading); line-height: 1.3; padding: 0 4px; }
+@media(max-width:560px){ .step-flow::before { display: none; } .step-flow { flex-wrap: wrap; gap: 14px; } .step-item { width: 45%; } }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TOOL CARDS — SAM card style with green icon
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.tool-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: box-shadow .2s, border-color .2s;
+  display: flex; flex-direction: column;
+}
+.tool-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--sam-green-mid); }
+.tool-icon {
+  width: 40px; height: 40px;
+  background: var(--sam-green);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.tool-icon svg { width: 20px; height: 20px; color: #fff; }
+.tool-card h4 { font-size: .9rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 6px; }
+.tool-card p { font-size: .79rem; color: var(--sam-body-text); line-height: 1.6; flex: 1; }
+.tool-badge {
+  display: inline-block;
+  background: var(--sam-green-light);
+  color: var(--sam-green);
+  font-size: .68rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 12px;
+  margin-top: 10px; text-transform: uppercase; letter-spacing: .04em;
+}
+.tool-card a.tool-ext {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: .77rem; font-weight: 600; color: var(--sam-blue);
+  margin-top: 8px;
+}
+.tool-card a.tool-ext:hover { color: var(--sam-green); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CASE STUDY CARDS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.case-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .2s, border-color .2s;
+}
+.case-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--sam-green-mid); }
+.case-card-top { padding: 16px 18px 0; }
+.badge {
+  display: inline-block;
+  font-size: .68rem; font-weight: 700;
+  padding: 3px 9px; border-radius: 12px;
+  margin-right: 5px; margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.b-green { background: #e1f5ea; color: #0a6e30; }
+.b-blue  { background: #e1eef9; color: #1a5a8a; }
+.b-red   { background: #fce8e8; color: #8a1a1a; }
+.b-amber { background: #fdf4e0; color: #7a5000; }
+.b-teal  { background: #e0f0f5; color: #0a5a6e; }
+.case-body { padding: 0 18px 18px; }
+.case-body h4 { font-size: .92rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 8px; line-height: 1.4; }
+.case-body p { font-size: .8rem; color: var(--sam-body-text); line-height: 1.65; }
+.case-metrics { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.metric-box {
+  background: var(--sam-grey-light);
+  border: 1px solid var(--sam-border);
+  border-radius: 3px;
+  padding: 7px 10px; text-align: center; min-width: 72px;
+}
+.metric-box .mnum { font-size: 1rem; font-weight: 700; color: var(--sam-green); display: block; }
+.metric-box small { font-size: .65rem; color: var(--sam-muted); line-height: 1.25; display: block; }
+.case-footer {
+  padding: 10px 18px;
+  border-top: 1px solid var(--sam-border);
+  background: var(--sam-grey-light);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .74rem; color: var(--sam-muted);
+}
+.case-footer a { font-size: .74rem; font-weight: 600; color: var(--sam-green); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   E-LEARNING CARDS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.elearn-card {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 18px;
+  transition: box-shadow .2s, border-color .2s;
+  color: inherit;
+}
+.elearn-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  border-color: var(--sam-green-mid);
+  text-decoration: none;
+}
+.elearn-logo {
+  width: 46px; height: 46px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .8rem; color: #fff;
+  flex-shrink: 0; line-height: 1.1; text-align: center;
+}
+.el-ihi  { background: linear-gradient(135deg,#036d3a,#2f7653); }
+.el-hqip { background: linear-gradient(135deg,#1a3a70,#2a5ab0); }
+.el-nhse { background: linear-gradient(135deg,#003087,#005eb8); }
+.el-bmj  { background: linear-gradient(135deg,#b00000,#d32f2f); }
+.el-nes  { background: linear-gradient(135deg,#00509e,#0070cc); }
+.el-q    { background: linear-gradient(135deg,#2c7873,#52ab98); }
+.el-rcp  { background: linear-gradient(135deg,#7b1c1c,#ab2c2c); }
+.el-tips { background: linear-gradient(135deg,#555,#777); font-size:.65rem; }
+.elearn-info h4 { font-size: .88rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 4px; transition: color .2s; }
+.elearn-card:hover .elearn-info h4 { color: var(--sam-green); }
+.elearn-info p { font-size: .77rem; color: var(--sam-body-text); line-height: 1.55; }
+.elearn-tag {
+  display: inline-block;
+  font-size: .65rem; font-weight: 700;
+  padding: 2px 7px; border-radius: 10px; margin-top: 6px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.et-free     { background: #e1f5ea; color: #0a6e30; }
+.et-journal  { background: #fdf4e0; color: #7a5000; }
+.et-community{ background: #e8e0f5; color: #4a1c8a; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESOURCE LINK LIST
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.res-group { margin-bottom: 22px; }
+.res-group-title {
+  font-size: .73rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--sam-green);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--sam-green-light);
+  margin-bottom: 8px;
+}
+.res-link {
+  display: flex; align-items: flex-start; gap: 9px;
+  padding: 9px 14px;
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  margin-bottom: 5px;
+  font-size: .83rem; color: var(--sam-blue);
+  transition: all .15s;
+}
+.res-link:hover {
+  background: var(--sam-green-light);
+  border-color: var(--sam-green-mid);
+  color: var(--sam-green);
+  text-decoration: none;
+  transform: translateX(3px);
+}
+.res-link svg { flex-shrink: 0; margin-top: 3px; width: 13px; height: 13px; color: var(--sam-muted); }
+.res-link:hover svg { color: var(--sam-green); }
+.res-link-body { color: var(--sam-body-text); }
+.res-tag {
+  display: inline-block;
+  background: var(--sam-green-light);
+  color: var(--sam-green);
+  font-size: .65rem; font-weight: 700;
+  padding: 1px 6px; border-radius: 10px; margin-right: 5px;
+  text-transform: uppercase; letter-spacing: .03em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   GLOSSARY
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+@media(max-width:600px){ .glossary { grid-template-columns: 1fr; } }
+.gloss-item {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.gloss-item strong { color: var(--sam-green); font-size: .85rem; display: block; margin-bottom: 3px; }
+.gloss-item p { font-size: .77rem; color: var(--sam-body-text); line-height: 1.55; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   AUDIT CARDS
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.audit-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-top: 3px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: box-shadow .2s;
+}
+.audit-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+.audit-card:nth-child(2) { border-top-color: #2f7653; }
+.audit-card:nth-child(3) { border-top-color: var(--sam-blue); }
+.audit-icon {
+  width: 38px; height: 38px;
+  background: var(--sam-green-light);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.audit-icon svg { width: 18px; height: 18px; color: var(--sam-green); }
+.audit-card h4 { font-size: .96rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 8px; }
+.audit-card p { font-size: .8rem; color: var(--sam-body-text); line-height: 1.65; margin-bottom: 12px; }
+.audit-stat { font-size: 1.3rem; font-weight: 700; color: var(--sam-green); margin-bottom: 10px; }
+.audit-stat span { font-size: .75rem; font-weight: 400; color: var(--sam-muted); }
+.btn-green-outline {
+  display: inline-flex; align-items: center; gap: 5px;
+  border: 2px solid var(--sam-green);
+  color: var(--sam-green);
+  padding: 6px 14px; border-radius: var(--radius);
+  font-size: .78rem; font-weight: 700;
+  transition: all .2s;
+}
+.btn-green-outline:hover { background: var(--sam-green); color: #fff; text-decoration: none; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   NOTE BOX
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.note-box {
+  background: #f0f9f4;
+  border: 1px solid #b3dfc5;
+  border-left: 4px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 13px 18px;
+  font-size: .84rem;
+  color: #1a5230;
+  margin-bottom: 20px;
+}
+.note-box a { color: var(--sam-green); font-weight: 700; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CTA GREEN BAND
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.cta-band {
+  background: linear-gradient(135deg, #025530 0%, #036d3a 60%, #2f7653 100%);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.cta-band h3 { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.cta-band p { color: rgba(255,255,255,.8); font-size: .9rem; max-width: 480px; font-weight: 300; }
+.cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-white-solid {
+  background: #fff; color: var(--sam-green) !important;
+  padding: 10px 22px; border-radius: var(--radius);
+  font-size: .86rem; font-weight: 700;
+  transition: background .2s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-white-solid:hover { background: #e8f5ee; text-decoration: none; }
+.btn-white-outline {
+  border: 2px solid rgba(255,255,255,.6); color: #fff !important;
+  padding: 8px 20px; border-radius: var(--radius);
+  font-size: .86rem; font-weight: 700;
+  transition: all .2s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-white-outline:hover { background: rgba(255,255,255,.1); border-color: #fff; text-decoration: none; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SIDEBAR
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.sidebar { position: sticky; top: 82px; }
+.sb-box {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.sb-head {
+  background: var(--sam-green);
+  color: #fff;
+  padding: 11px 16px;
+  font-size: .75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.sb-body { padding: 6px 0; }
+.sb-item {
+  display: flex; align-items: center; gap: 9px;
+  padding: 10px 16px;
+  font-size: .84rem; color: var(--sam-heading);
+  border-left: 3px solid transparent;
+  transition: all .15s;
+}
+.sb-item:hover {
+  background: var(--sam-green-light);
+  border-color: var(--sam-green);
+  color: var(--sam-green);
+  text-decoration: none;
+}
+.sb-item.active {
+  background: var(--sam-green-light);
+  border-color: var(--sam-green);
+  color: var(--sam-green);
+  font-weight: 700;
+}
+.sb-item svg { width: 14px; height: 14px; color: var(--sam-muted); flex-shrink: 0; }
+.sb-item:hover svg, .sb-item.active svg { color: var(--sam-green); }
+
+.join-widget {
+  background: var(--sam-green);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.join-widget h4 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.join-widget p { font-size: .8rem; color: rgba(255,255,255,.8); margin-bottom: 16px; font-weight: 300; }
+.btn-join-widget {
+  display: inline-block;
+  background: #fff; color: var(--sam-green) !important;
+  padding: 9px 22px; border-radius: var(--radius);
+  font-size: .86rem; font-weight: 700;
+  transition: background .2s;
+}
+.btn-join-widget:hover { background: #e8f5ee; text-decoration: none; }
+
+.event-item { padding: 11px 16px; border-bottom: 1px solid var(--sam-border); }
+.event-item:last-child { border-bottom: none; }
+.event-date { font-size: .69rem; font-weight: 700; text-transform: uppercase; color: var(--sam-green); letter-spacing: .05em; margin-bottom: 3px; }
+.event-title { font-size: .82rem; color: var(--sam-heading); font-weight: 600; line-height: 1.3; }
+.event-loc { font-size: .72rem; color: var(--sam-muted); margin-top: 2px; }
+
+.sb-pub { padding: 10px 16px; border-bottom: 1px solid var(--sam-border); }
+.sb-pub:last-child { border-bottom: none; }
+.sb-pub a { font-size: .79rem; color: var(--sam-heading); font-weight: 600; display: block; line-height: 1.35; margin-bottom: 3px; }
+.sb-pub a:hover { color: var(--sam-green); }
+.sb-pub span { font-size: .71rem; color: var(--sam-muted); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FOOTER — SAM: white background, green accents
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+footer {
+  background: var(--sam-white);
+  border-top: 3px solid var(--sam-green);
+  padding: 48px 0 0;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+@media(max-width:800px){ .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+@media(max-width:480px){ .footer-grid { grid-template-columns: 1fr; } }
+.footer-col h5 {
+  font-size: .74rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--sam-green);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--sam-border);
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 7px; }
+.footer-col ul li a { font-size: .84rem; color: var(--sam-body-text); transition: color .2s; }
+.footer-col ul li a:hover { color: var(--sam-green); text-decoration: none; }
+.footer-col p { font-size: .83rem; color: var(--sam-body-text); line-height: 1.7; }
+.footer-logo-wrap { margin-bottom: 14px; }
+.footer-logo-wrap img { height: 48px; }
+.footer-logo-fallback {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.footer-logo-icon {
+  width: 44px; height: 44px;
+  background: var(--sam-green);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+}
+.footer-logo-icon svg { width: 26px; height: 26px; }
+.footer-logo-text .l1 { font-size: .95rem; font-weight: 700; color: var(--sam-green); display: block; }
+.footer-logo-text .l2 { font-size: .7rem; color: var(--sam-muted); }
+.social-row { display: flex; gap: 8px; margin-top: 14px; }
+.soc-btn {
+  width: 32px; height: 32px;
+  background: var(--sam-green-light);
+  border: 1px solid var(--sam-border);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sam-green);
+  transition: all .2s;
+}
+.soc-btn:hover { background: var(--sam-green); color: #fff; text-decoration: none; }
+.soc-btn svg { width: 15px; height: 15px; }
+.footer-bottom {
+  border-top: 1px solid var(--sam-border);
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: .78rem;
+  color: var(--sam-muted);
+}
+.footer-bottom a { color: var(--sam-blue); }
+.footer-bottom a:hover { color: var(--sam-green); }
+
+/* details accordion */
+details {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+details summary {
+  font-weight: 700; color: var(--sam-heading);
+  cursor: pointer; font-size: .9rem;
+  user-select: none; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+}
+details summary::after { content: '▸'; color: var(--sam-green); font-size: .8rem; }
+details[open] summary::after { content: '▾'; }
+details[open] { border-color: var(--sam-green-mid); }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SQUIRE 2.0 STYLES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Phase overview strip */
+.squire-phases { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; margin-bottom: 24px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--sam-border); }
+@media(max-width:800px){ .squire-phases { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px){ .squire-phases { grid-template-columns: 1fr; } }
+.sq-phase {
+  padding: 16px 14px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.2);
+  position: relative;
+}
+.sq-phase:last-child { border-right: none; }
+.sq-phase.ph1 { background: #025530; }
+.sq-phase.ph2 { background: #036d3a; }
+.sq-phase.ph3 { background: #2f7653; }
+.sq-phase.ph4 { background: #428bca; }
+.sq-phase.ph5 { background: #1a5a8a; }
+.sq-phase-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: rgba(255,255,255,.65); display: block; margin-bottom: 5px; }
+.sq-phase-title { font-size: .84rem; font-weight: 700; color: #fff; display: block; line-height: 1.3; margin-bottom: 5px; }
+.sq-phase-items { font-size: .71rem; color: rgba(255,255,255,.7); }
+.sq-phase-q { font-size: .7rem; font-style: italic; color: rgba(255,255,255,.55); display: block; margin-top: 4px; }
+
+/* Item accordion */
+.squire-group { margin-bottom: 20px; }
+.sq-group-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  margin-bottom: 0;
+  font-weight: 700; font-size: .84rem;
+  color: #fff;
+  cursor: default;
+}
+.sq-group-head.gh1 { background: #025530; }
+.sq-group-head.gh2 { background: #036d3a; }
+.sq-group-head.gh3 { background: #2f7653; }
+.sq-group-head.gh4 { background: #428bca; }
+.sq-group-head.gh5 { background: #1a5a8a; }
+.sq-group-head.gh6 { background: #555; }
+.sq-group-head .gh-q { font-size: .72rem; font-style: italic; opacity: .75; margin-left: auto; font-weight: 400; }
+.sq-group-body { border: 1px solid var(--sam-border); border-top: none; border-radius: 0 0 var(--radius) var(--radius); overflow: hidden; }
+
+/* SQUIRE item */
+.sq-item {
+  border-bottom: 1px solid var(--sam-border);
+  background: var(--sam-white);
+}
+.sq-item:last-child { border-bottom: none; }
+.sq-item-header {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 13px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .15s;
+  list-style: none;
+}
+.sq-item-header:hover { background: var(--sam-green-light); }
+.sq-num-badge {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--sam-green);
+  color: #fff; font-size: .75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.sq-num-badge.nb2 { background: #036d3a; }
+.sq-num-badge.nb3 { background: #2f7653; }
+.sq-num-badge.nb4 { background: #428bca; }
+.sq-num-badge.nb5 { background: #1a5a8a; }
+.sq-num-badge.nb6 { background: #555; }
+.sq-item-name { font-size: .88rem; font-weight: 700; color: var(--sam-heading); flex: 1; }
+.sq-item-name small { display: block; font-size: .75rem; font-weight: 400; color: var(--sam-muted); margin-top: 2px; }
+.sq-chevron { color: var(--sam-green); font-size: .75rem; flex-shrink: 0; margin-top: 4px; transition: transform .2s; }
+details.sq-item[open] .sq-chevron { transform: rotate(90deg); }
+details.sq-item[open] { background: var(--sam-green-pale); }
+details.sq-item[open] .sq-item-header { background: var(--sam-green-light); }
+details.sq-item { border: none; border-bottom: 1px solid var(--sam-border); border-radius: 0; padding: 0; margin: 0; }
+details.sq-item:last-child { border-bottom: none; }
+details.sq-item summary { padding: 0; display: flex; }
+details.sq-item[open] summary::after { display: none; }
+details.sq-item summary::after { display: none; }
+
+.sq-item-body {
+  padding: 0 16px 16px 56px;
+  font-size: .83rem;
+  color: var(--sam-body-text);
+  line-height: 1.7;
+}
+.sq-item-body p { margin-bottom: 8px; }
+.sq-item-body ul { padding-left: 18px; }
+.sq-item-body ul li { margin-bottom: 5px; }
+.sq-item-body strong { color: var(--sam-green); }
+.sq-item-body .sq-tip {
+  background: var(--sam-green-light);
+  border-left: 3px solid var(--sam-green);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-size: .78rem;
+  color: #1a5230;
+}
+.sq-item-body .sq-tip strong { color: #036d3a; }
+
+/* Worked example */
+.worked-example {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 24px;
+}
+.we-head {
+  background: linear-gradient(135deg,#025530,#036d3a);
+  padding: 16px 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.we-head h3 { font-size: .96rem; font-weight: 700; color: #fff; margin: 0; }
+.we-badge { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); font-size: .68rem; font-weight: 700; padding: 3px 9px; border-radius: 10px; text-transform: uppercase; letter-spacing: .04em; }
+.we-grid { display: grid; grid-template-columns: 1fr 1fr; }
+@media(max-width:640px){ .we-grid { grid-template-columns: 1fr; } }
+.we-col { padding: 18px 20px; border-right: 1px solid var(--sam-border); }
+.we-col:last-child { border-right: none; }
+.we-col h4 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--sam-green); margin-bottom: 8px; border-bottom: 1px solid var(--sam-green-light); padding-bottom: 5px; }
+.we-col p { font-size: .8rem; color: var(--sam-body-text); line-height: 1.65; margin-bottom: 8px; }
+.we-col p:last-child { margin-bottom: 0; }
+.we-col strong { color: var(--sam-heading); }
+
+/* SQUIRE Glossary */
+.sq-glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+@media(max-width:600px){ .sq-glossary { grid-template-columns: 1fr; } }
+.sq-gitem { background: var(--sam-white); border: 1px solid var(--sam-border); border-radius: var(--radius); padding: 11px 13px; }
+.sq-gitem strong { color: var(--sam-green); font-size: .83rem; display: block; margin-bottom: 3px; }
+.sq-gitem p { font-size: .76rem; color: var(--sam-body-text); line-height: 1.55; }
+
+/* SQUIRE download banner */
+.sq-download {
+  background: var(--sam-grey-light);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  margin-top: 20px;
+}
+.sq-download p { font-size: .83rem; color: var(--sam-body-text); margin: 0; }
+.sq-download a { font-size: .83rem; font-weight: 700; color: var(--sam-green); white-space: nowrap; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PRECISE FRAMEWORK STYLES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Large letter acronym display */
+.precise-hero {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--sam-border);
+  margin-bottom: 28px;
+}
+@media(max-width:700px){ .precise-hero { grid-template-columns: repeat(4,1fr); } }
+@media(max-width:420px){ .precise-hero { grid-template-columns: repeat(2,1fr); } }
+.pre-letter {
+  text-align: center;
+  padding: 18px 8px 14px;
+  border-right: 1px solid rgba(255,255,255,.18);
+  position: relative;
+}
+.pre-letter:last-child { border-right: none; }
+.pre-letter.l-p { background: #025530; }
+.pre-letter.l-r { background: #036d3a; }
+.pre-letter.l-e1{ background: #2f7653; }
+.pre-letter.l-c { background: #428bca; }
+.pre-letter.l-i { background: #1a5a8a; }
+.pre-letter.l-s { background: #155f8a; }
+.pre-letter.l-e2{ background: #0f4d72; }
+.pre-letter .big-letter {
+  font-size: 2.4rem; font-weight: 700;
+  color: #fff; line-height: 1;
+  display: block; margin-bottom: 6px;
+  font-family: var(--font);
+}
+.pre-letter .word { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.8); display: block; line-height: 1.25; }
+
+/* Criterion cards */
+.precise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media(max-width:650px){ .precise-grid { grid-template-columns: 1fr; } }
+
+.pre-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .2s, border-color .2s;
+}
+.pre-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--sam-green-mid); }
+.pre-card-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--sam-border);
+  background: var(--sam-grey-light);
+}
+.pre-badge {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; font-weight: 700; color: #fff; flex-shrink: 0;
+  font-family: var(--font);
+}
+.pb-p  { background: #025530; }
+.pb-r  { background: #036d3a; }
+.pb-e1 { background: #2f7653; }
+.pb-c  { background: #428bca; }
+.pb-i  { background: #1a5a8a; }
+.pb-s  { background: #155f8a; }
+.pb-e2 { background: #0f4d72; }
+.pre-card-head-text h4 { font-size: .9rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 2px; }
+.pre-card-head-text span { font-size: .72rem; color: var(--sam-muted); }
+.pre-card-body { padding: 14px 16px; }
+.pre-card-body p { font-size: .82rem; color: var(--sam-body-text); line-height: 1.65; margin-bottom: 10px; }
+.pre-card-body p:last-child { margin-bottom: 0; }
+.pre-card-body .pre-q {
+  background: var(--sam-green-light);
+  border-left: 3px solid var(--sam-green);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 8px 12px;
+  font-size: .78rem; color: #1a5230; font-style: italic;
+  margin-top: 10px;
+}
+.pre-card-body ul { padding-left: 16px; }
+.pre-card-body ul li { font-size: .8rem; color: var(--sam-body-text); margin-bottom: 4px; line-height: 1.5; }
+.pre-card-body strong { color: var(--sam-green); }
+
+/* PRECISE scoring matrix */
+.pre-matrix {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.pre-matrix-head { background: var(--sam-green); padding: 12px 16px; }
+.pre-matrix-head h4 { font-size: .85rem; font-weight: 700; color: #fff; margin: 0; }
+.pre-matrix table { width: 100%; border-collapse: collapse; font-size: .78rem; }
+.pre-matrix th { background: var(--sam-grey-light); padding: 9px 12px; text-align: left; font-weight: 700; color: var(--sam-heading); border-bottom: 1px solid var(--sam-border); font-size: .75rem; }
+.pre-matrix td { padding: 9px 12px; border-bottom: 1px solid var(--sam-border); vertical-align: top; color: var(--sam-body-text); }
+.pre-matrix tr:last-child td { border-bottom: none; }
+.pre-matrix tr:hover td { background: var(--sam-green-pale); }
+.pre-matrix .tag-yes  { background: #e1f5ea; color: #0a6e30; font-size: .68rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; display: inline-block; }
+.pre-matrix .tag-part { background: #fff5e0; color: #7a5000; font-size: .68rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; display: inline-block; }
+.pre-matrix .tag-no   { background: #fce8e8; color: #8a1a1a; font-size: .68rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; display: inline-block; }
+.pre-matrix .crit-col { font-weight: 700; color: var(--sam-green); }
+
+/* PRECISE vs Donabedian map */
+.pre-mapping {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 24px;
+}
+@media(max-width:600px){ .pre-mapping { grid-template-columns: 1fr; } }
+.pre-map-col { background: var(--sam-white); border: 1px solid var(--sam-border); border-radius: var(--radius); overflow: hidden; }
+.pre-map-head { padding: 10px 14px; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.pmh-s { background: #dff0ff; color: #0c4a8a; }
+.pmh-p { background: var(--sam-green-light); color: #025530; }
+.pmh-o { background: #fff5e0; color: #7a5000; }
+.pre-map-body { padding: 12px 14px; }
+.pre-map-body p { font-size: .78rem; color: var(--sam-muted); margin-bottom: 4px; line-height: 1.4; }
+.pre-map-body strong { color: var(--sam-heading); display: block; font-size: .8rem; margin-bottom: 8px; }
+
+/* Worked example strip */
+.pre-example {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.pre-example-head { background: linear-gradient(135deg,#025530,#2f7653); padding: 14px 18px; display: flex; align-items: center; gap: 10px; }
+.pre-example-head h3 { font-size: .9rem; font-weight: 700; color: #fff; margin: 0; }
+.pre-example-head .tag { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); font-size: .68rem; font-weight: 700; padding: 3px 9px; border-radius: 10px; text-transform: uppercase; letter-spacing: .04em; }
+.pre-ex-row {
+  display: grid; grid-template-columns: 90px 1fr 1fr 80px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--sam-border);
+  align-items: start; gap: 12px; font-size: .79rem;
+}
+@media(max-width:640px){ .pre-ex-row { grid-template-columns: 1fr 1fr; } }
+.pre-ex-row:last-child { border-bottom: none; }
+.pre-ex-row.header { background: var(--sam-grey-light); font-weight: 700; color: var(--sam-heading); font-size: .74rem; }
+.pre-ex-crit { font-weight: 700; color: var(--sam-green); }
+.pre-ex-rating { text-align: center; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SAM QI TOOLKIT — Embedded Template Styles
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.toolkit-banner { background:linear-gradient(135deg,#025530 0%,#036d3a 55%,#2f7653 100%); border-radius:var(--radius); padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:20px; }
+.toolkit-banner-left { display:flex; align-items:center; gap:14px; }
+.toolkit-logo { width:48px; height:48px; background:rgba(255,255,255,.15); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.toolkit-logo svg { width:30px; height:30px; }
+.toolkit-banner h3 { font-size:1rem; font-weight:700; color:#fff; margin-bottom:3px; }
+.toolkit-banner p { font-size:.78rem; color:rgba(255,255,255,.75); margin:0; }
+.toolkit-count { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.9); font-size:.72rem; font-weight:700; padding:4px 12px; border-radius:12px; white-space:nowrap; }
+details.toolkit-card { background:var(--sam-white); border:1px solid var(--sam-border); border-radius:var(--radius); overflow:hidden; margin-bottom:10px; }
+details.toolkit-card[open] { box-shadow:0 4px 20px rgba(3,109,58,.12); border-color:var(--sam-green-mid); }
+details.toolkit-card summary { padding:0; list-style:none; display:flex; }
+details.toolkit-card summary::after { display:none; }
+details.toolkit-card[open] summary { border-bottom:1px solid var(--sam-border); }
+.toolkit-card-head { display:flex; align-items:center; gap:14px; padding:13px 18px; cursor:pointer; user-select:none; width:100%; transition:background .15s; }
+.toolkit-card-head:hover { background:var(--sam-green-pale); }
+.toolkit-num { width:30px; height:30px; border-radius:50%; background:var(--sam-green); color:#fff; font-size:.78rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.tc-meta { flex:1; }
+.tc-meta h4 { font-size:.9rem; font-weight:700; color:var(--sam-heading); margin-bottom:1px; }
+.tc-meta span { font-size:.74rem; color:var(--sam-muted); }
+.tc-badge { font-size:.65rem; font-weight:700; background:var(--sam-green-light); color:var(--sam-green); padding:2px 8px; border-radius:10px; text-transform:uppercase; letter-spacing:.04em; flex-shrink:0; }
+.tc-arrow { color:var(--sam-green); font-size:.8rem; flex-shrink:0; transition:transform .2s; margin-left:4px; }
+details.toolkit-card[open] .tc-arrow { transform:rotate(90deg); }
+.template-sheet { background:var(--sam-grey-light); padding:18px; }
+.sam-template { background:#fff; border:1.5px solid var(--sam-border); border-radius:4px; font-family:var(--font); overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+.sam-tmpl-header { background:var(--sam-green); padding:11px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.sam-tmpl-title { color:#fff; font-size:.88rem; font-weight:700; }
+.sam-tmpl-logo { display:flex; align-items:center; gap:7px; color:rgba(255,255,255,.8); font-size:.7rem; font-weight:700; }
+.sam-tmpl-logo svg { width:20px; height:20px; }
+.sam-tmpl-meta { background:var(--sam-green-light); border-bottom:1px solid #c5e0d4; padding:8px 18px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.sam-meta-field label { font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--sam-green); display:block; margin-bottom:2px; }
+.sam-meta-field .field-line { border-bottom:1.5px solid #9fcdb5; height:18px; }
+.sam-tmpl-body { padding:16px 18px; }
+.pdsa-grid-tpl { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#c5e0d4; border:1px solid #c5e0d4; }
+.pdsa-cell { background:#fff; padding:12px 14px; }
+.pdsa-cell-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; padding-bottom:6px; border-bottom:1px dashed #c5e0d4; }
+.pdsa-cell-head .pdsa-letter { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.78rem; font-weight:700; color:#fff; flex-shrink:0; }
+.pl-plan { background:var(--sam-green); }
+.pl-do   { background:#2f7653; }
+.pl-study{ background:var(--sam-blue); }
+.pl-act  { background:#1a5a8a; }
+.pdsa-cell-head strong { font-size:.8rem; font-weight:700; color:var(--sam-heading); }
+.write-line { border-bottom:1px solid #eee; height:22px; margin-bottom:3px; }
+.rct-grid { border-left:2.5px solid var(--sam-green); border-bottom:2.5px solid var(--sam-green); height:170px; position:relative; background:repeating-linear-gradient(to top,#e8f5ee 0,#e8f5ee 1px,#fff 1px,#fff 28px); margin-bottom:8px; }
+.rct-median { position:absolute; left:0; right:0; border-top:2px dashed rgba(3,109,58,.45); top:50%; }
+.rct-median-label { position:absolute; right:6px; top:-16px; font-size:.6rem; color:var(--sam-green); font-weight:700; background:#fff; padding:1px 4px; }
+.rct-x-ticks { display:flex; }
+.rct-tick { flex:1; text-align:center; font-size:.58rem; color:var(--sam-muted); border-top:1px solid var(--sam-border); padding-top:2px; }
+.rct-pdsa-markers { display:flex; position:absolute; top:0; left:0; right:0; height:100%; }
+.rct-pdsa-m { flex:1; border-right:1px dashed rgba(3,109,58,.2); position:relative; }
+.rct-pdsa-m .pdsa-label { position:absolute; top:4px; left:3px; font-size:.56rem; font-weight:700; color:rgba(3,109,58,.65); background:rgba(232,245,238,.8); padding:1px 4px; border-radius:3px; }
+.dd-tpl { display:grid; grid-template-columns:110px 1fr 1fr; gap:6px; align-items:start; }
+.dd-aim-box { background:var(--sam-green); color:#fff; padding:12px 8px; border-radius:4px; text-align:center; font-size:.7rem; font-weight:700; display:flex; align-items:center; justify-content:center; min-height:150px; }
+.dd-drivers { display:flex; flex-direction:column; gap:5px; }
+.dd-primary { background:var(--sam-green-light); border:1.5px solid var(--sam-green-mid); border-radius:3px; padding:8px 10px; }
+.dd-primary .dd-label { font-size:.62rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--sam-green); margin-bottom:4px; }
+.dd-primary .dd-line { border-bottom:1px solid #c5e0d4; height:14px; margin-bottom:3px; }
+.dd-secondary { display:flex; flex-direction:column; gap:4px; }
+.dd-change { background:#fff; border:1px solid var(--sam-border); border-left:3px solid var(--sam-green-mid); border-radius:0 3px 3px 0; padding:6px 10px; }
+.dd-change .dd-line { border-bottom:1px solid #eee; height:13px; margin-bottom:2px; }
+.fmea-table { width:100%; border-collapse:collapse; font-size:.71rem; }
+.fmea-table th { background:var(--sam-green); color:#fff; padding:7px 8px; text-align:left; font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+.fmea-table td { padding:7px 8px; border-bottom:1px solid var(--sam-border); color:var(--sam-body-text); }
+.fmea-table tr:nth-child(even) td { background:var(--sam-green-pale); }
+.fmea-rpn { font-weight:700; background:var(--sam-green-light); color:var(--sam-green); border-radius:3px; padding:2px 6px; display:inline-block; }
+.aim-field { border:1.5px solid var(--sam-green-mid); border-radius:4px; overflow:hidden; margin-bottom:10px; }
+.aim-field-head { background:var(--sam-green); color:#fff; padding:7px 12px; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
+.aim-field-body { padding:10px 12px; min-height:36px; }
+.aim-formula { background:var(--sam-green-light); border-left:3px solid var(--sam-green); padding:10px 14px; border-radius:0 4px 4px 0; font-size:.74rem; color:#1a5230; font-weight:600; margin-bottom:10px; }
+.pre-score-tpl table { width:100%; border-collapse:collapse; font-size:.71rem; }
+.pre-score-tpl th { background:var(--sam-green); color:#fff; padding:7px 10px; font-size:.67rem; font-weight:700; text-transform:uppercase; }
+.pre-score-tpl td { padding:7px 10px; border-bottom:1px solid var(--sam-border); }
+.pre-score-tpl tr:nth-child(even) td { background:var(--sam-green-pale); }
+.score-check { width:18px; height:18px; border:1.5px solid var(--sam-green-mid); border-radius:3px; display:inline-block; }
+.score-letter { width:22px; height:22px; border-radius:50%; background:var(--sam-green); color:#fff; font-size:.72rem; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+.squire-tpl-row { display:flex; align-items:flex-start; gap:10px; padding:7px 0; border-bottom:1px solid var(--sam-border); }
+.squire-tpl-row:last-child { border-bottom:none; }
+.squire-tpl-num { width:22px; height:22px; border-radius:50%; background:var(--sam-green); color:#fff; font-size:.67rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+.squire-tpl-text strong { font-size:.77rem; font-weight:700; color:var(--sam-heading); display:block; margin-bottom:2px; }
+.squire-tpl-text span { font-size:.69rem; color:var(--sam-muted); }
+.squire-chk { width:18px; height:18px; border:1.5px solid var(--sam-green-mid); border-radius:3px; flex-shrink:0; margin-top:3px; }
+.tmpl-actions { padding:12px 18px; background:var(--sam-green-light); border-top:1px solid #c5e0d4; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.tmpl-actions p { font-size:.73rem; color:#1a5230; margin:0; }
+.btn-print { background:var(--sam-green); color:#fff; padding:7px 16px; border-radius:var(--radius); font-size:.78rem; font-weight:700; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:6px; font-family:var(--font); transition:background .2s; }
+.btn-print:hover { background:#025530; }
+.btn-print svg { width:14px; height:14px; }
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MULTI-PROFESSIONAL AGENDA STYLES
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.mp-banner {
+  background: var(--sam-green-light);
+  border: 1px solid #c5e0d4;
+  border-left: 4px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.mp-banner svg { width: 28px; height: 28px; color: var(--sam-green); flex-shrink: 0; }
+.mp-banner-text { flex: 1; }
+.mp-banner-text strong { color: var(--sam-green); font-size: .88rem; display: block; margin-bottom: 2px; }
+.mp-banner-text p { font-size: .8rem; color: #1a5230; margin: 0; line-height: 1.55; }
+.mp-banner-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.mp-pill {
+  background: var(--sam-green); color: #fff;
+  font-size: .67rem; font-weight: 700; padding: 4px 10px;
+  border-radius: 12px; text-transform: uppercase; letter-spacing: .04em;
+  white-space: nowrap;
+}
+.mp-pill.grey { background: var(--sam-muted); }
+
+/* Profession cards grid */
+.prof-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+@media(max-width:780px){ .prof-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px){ .prof-grid { grid-template-columns: 1fr; } }
+.prof-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .2s, border-color .2s;
+}
+.prof-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--sam-green-mid); }
+.prof-card-head {
+  padding: 13px 16px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid var(--sam-border);
+}
+.prof-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.prof-icon svg { width: 18px; height: 18px; color: #fff; }
+.pi-nurse   { background: #036d3a; }
+.pi-acp     { background: #2f7653; }
+.pi-doc     { background: #428bca; }
+.pi-pharm   { background: #1a5a8a; }
+.pi-ahp     { background: #5a4a8a; }
+.pi-pa      { background: #7a5a00; }
+.prof-card-head h4 { font-size: .88rem; font-weight: 700; color: var(--sam-heading); margin-bottom: 2px; }
+.prof-card-head span { font-size: .7rem; color: var(--sam-muted); }
+.prof-card-body { padding: 12px 16px; }
+.prof-card-body p { font-size: .78rem; color: var(--sam-body-text); line-height: 1.6; margin-bottom: 8px; }
+.prof-card-body p:last-child { margin-bottom: 0; }
+.prof-examples { margin-top: 8px; }
+.prof-examples .ex-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--sam-green); margin-bottom: 5px; }
+.prof-ex-tag {
+  display: inline-block;
+  background: var(--sam-green-light); color: var(--sam-green);
+  font-size: .66rem; font-weight: 600; padding: 2px 7px;
+  border-radius: 10px; margin: 2px 3px 2px 0;
+}
+.prof-card-foot {
+  padding: 9px 16px; border-top: 1px solid var(--sam-border);
+  background: var(--sam-grey-light);
+}
+.prof-card-foot a { font-size: .75rem; font-weight: 700; color: var(--sam-green); }
+
+/* Case study profession badge */
+.b-nurse  { background: #e8f5ee; color: #025530; }
+.b-acp    { background: #e0eeea; color: #1a5230; }
+.b-pharm  { background: #e0eaf5; color: #0c3a6e; }
+.b-ahp    { background: #ede0f5; color: #3a1a6e; }
+.case-lead { font-size: .69rem; color: var(--sam-muted); margin-top: 4px; display: flex; align-items: center; gap: 5px; }
+.case-lead svg { width: 11px; height: 11px; }
+
+/* E-learning profession filter tabs */
+.el-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.el-ftab {
+  background: var(--sam-white); border: 1.5px solid var(--sam-border);
+  color: var(--sam-muted); padding: 5px 14px; border-radius: 20px;
+  font-size: .77rem; font-weight: 600; cursor: pointer;
+  transition: all .2s;
+}
+.el-ftab:hover, .el-ftab.active { background: var(--sam-green); border-color: var(--sam-green); color: #fff; }
+
+</style>
+
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TL;DR card + NEXT-STEPS navigation
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.tldr {
+  background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ee 100%);
+  border-left: 4px solid var(--sam-green);
+  border-radius: var(--radius);
+  padding: 14px 18px 16px;
+  margin-bottom: 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.tldr-icon {
+  width: 32px; height: 32px;
+  background: var(--sam-green);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.tldr-icon svg { width: 16px; height: 16px; color: #fff; }
+.tldr-body { flex: 1; }
+.tldr-body h3 {
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--sam-green);
+  margin: 4px 0 8px;
+}
+.tldr-body ul {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px;
+}
+.tldr-body li {
+  font-size: .82rem; color: #1a4530;
+  line-height: 1.5; padding-left: 16px; position: relative;
+}
+.tldr-body li::before {
+  content: "✓"; position: absolute; left: 0;
+  color: var(--sam-green); font-weight: 700;
+}
+
+/* Next-steps navigation footer */
+.next-nav {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 2px solid var(--sam-green-light);
+}
+.next-nav h4 {
+  font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--sam-muted); margin-bottom: 14px;
+}
+.next-nav-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.next-card {
+  background: var(--sam-white);
+  border: 1px solid var(--sam-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  text-decoration: none;
+  display: block;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.next-card:hover {
+  border-color: var(--sam-green);
+  box-shadow: 0 4px 16px rgba(3,109,58,.12);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.next-card .nc-label {
+  font-size: .68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em;
+  color: var(--sam-muted); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 6px;
+}
+.next-card .nc-label svg { width: 12px; height: 12px; }
+.next-card h5 {
+  font-size: .95rem; font-weight: 700; color: var(--sam-heading);
+  margin: 0 0 4px;
+}
+.next-card p {
+  font-size: .8rem; color: var(--sam-muted);
+  margin: 0; line-height: 1.5;
+}
+.next-card.next-primary {
+  background: var(--sam-green-pale);
+  border-color: var(--sam-green-mid);
+}
+.next-card.next-primary h5 { color: var(--sam-green); }
+
+</style>
+</head>
+<body>
+
+
+<!-- ═══════════════════════════════════════════════
+     SITE HEADER
+═══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+
+    <!-- Logo — loads real SAM logo, falls back to SVG -->
+    <a href="https://www.acutemedicine.org.uk/" target="_blank" rel="noopener" class="site-logo">
+      <img src="https://www.acutemedicine.org.uk/wp-content/uploads/SAM-LOGO-cropped-1.jpg"
+           alt="Society for Acute Medicine"
+           onerror="this.style.display='none';document.getElementById('logo-fb').style.display='flex'"/>
+      <div id="logo-fb" class="logo-fallback" style="display:none">
+        <div class="logo-icon-wrap">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 5L27 25H5L16 5Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+            <line x1="16" y1="15" x2="16" y2="21" stroke="#fff" stroke-width="2.2"/>
+            <circle cx="16" cy="24" r="1.4" fill="#fff"/>
+          </svg>
+        </div>
+        <div class="logo-words">
+          <span class="w1">Society for Acute Medicine</span>
+          <span class="w2">The national voice for Acute Medicine</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="site-nav" aria-label="Main">
+      <ul class="nav-list">
+        <li>
+          <a href="https://www.acutemedicine.org.uk/sam-news/" target="_blank" rel="noopener">News &amp; Events</a>
+          <ul class="dropdown">
+            <li><a href="https://www.acutemedicine.org.uk/sam-news/" target="_blank" rel="noopener">News</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/sam-events/" target="_blank" rel="noopener">Events</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.acutemedicine.org.uk/professional-groups/" target="_blank" rel="noopener">Professions</a>
+          <ul class="dropdown">
+            <li><a href="https://www.acutemedicine.org.uk/professional-groups/doctors/" target="_blank" rel="noopener">Doctors</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/trainee-hub/" target="_blank" rel="noopener">Trainee Hub</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/new-consultants/" target="_blank" rel="noopener">Consultants</a></li>
+            <li><hr></li>
+            <li><a href="https://www.acutemedicine.org.uk/nursing/" target="_blank" rel="noopener">Nursing</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/allied-health-professionals/" target="_blank" rel="noopener">Allied Health Professionals</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/pharmacy/" target="_blank" rel="noopener">Pharmacy</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/advanced-clinical-practitioners/" target="_blank" rel="noopener">Advanced Clinical Practitioners</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/physician-associates/" target="_blank" rel="noopener">Physician Associates</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.acutemedicine.org.uk/learning-hub/" target="_blank" rel="noopener">Hubs</a>
+          <ul class="dropdown">
+            <li><a href="https://www.acutemedicine.org.uk/learning-hub/" target="_blank" rel="noopener">Learning Hub</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/learning-hub/acute-medical-podcasts/" target="_blank" rel="noopener">Acute Medical Podcasts</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/learning-hub/sam-webinars/" target="_blank" rel="noopener">SAM Webinars</a></li>
+            <li><hr></li>
+            <li><a href="https://www.acutemedicine.org.uk/groups-hub/" target="_blank" rel="noopener">Groups Hub</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/specialty-interest-groups/" target="_blank" rel="noopener">Specialty Interest Groups</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/famus/" target="_blank" rel="noopener">FAMUS Hub</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/policy-hub/" target="_blank" rel="noopener">Policy Hub</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/flourishing-on-the-frontline/" target="_blank" rel="noopener">Wellbeing Hub</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.acutemedicine.org.uk/sdec/" target="_blank" rel="noopener">Delivery of Care</a>
+          <ul class="dropdown">
+            <li><a href="https://www.acutemedicine.org.uk/sdec/" target="_blank" rel="noopener">SDEC</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/enhanced-care/" target="_blank" rel="noopener">Enhanced Care</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.acutemedicine.org.uk/quality-improvement-2/" target="_blank" rel="noopener" class="active-qi">QI &amp; Research</a>
+          <ul class="dropdown">
+            <li><a href="https://www.acutemedicine.org.uk/quality-improvement-2/" target="_blank" rel="noopener">Quality Improvement</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/samba-new/" target="_blank" rel="noopener">SAMBA</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/sampler/" target="_blank" rel="noopener">SAM-PLER</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/sitrep/" target="_blank" rel="noopener">SAM SitRep</a></li>
+            <li><hr></li>
+            <li><a href="https://www.acutemedicine.org.uk/research-new/" target="_blank" rel="noopener">Research</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://www.acutemedicine.org.uk/about/" target="_blank" rel="noopener">About</a>
+          <ul class="dropdown">
+            <li><a href="https://www.acutemedicine.org.uk/sam-membership/" target="_blank" rel="noopener">Membership</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/sam-available-posts/" target="_blank" rel="noopener">Available Posts</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/sam-council-members/" target="_blank" rel="noopener">Council Members</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/our-history/" target="_blank" rel="noopener">Our History</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/past-presidents/" target="_blank" rel="noopener">Past Presidents</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/honorary-fellows/" target="_blank" rel="noopener">Honorary Fellows</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/efim/" target="_blank" rel="noopener">EFIM</a></li>
+            <li><a href="https://www.acutemedicine.org.uk/contact/" target="_blank" rel="noopener">Contact</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://app.sheepcrm.com/acutemedicine" target="_blank" rel="noopener">My Profile</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Action buttons -->
+    <div class="header-actions">
+      <a href="https://www.acutemedicine.org.uk/sam-membership/" target="_blank" rel="noopener" class="btn-join-sam">Join SAM</a>
+      <a href="https://www.acutemedicine.org.uk/accessing-the-member-hub/" target="_blank" rel="noopener" class="btn-login">Login</a>
+    </div>
+  </div>
+</header>
+<nav class="icon-nav" aria-label="Section navigation">
+  <div class="icon-nav-inner">
+    <a href="index.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/></svg><span>Overview</span></a>
+    <a href="mdt.html" class="active"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg><span>Professions</span></a>
+    <a href="methodology.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/></svg><span>Methodology</span></a>
+    <a href="tools.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v6a1 1 0 102 0V8z"/></svg><span>QI Tools</span></a>
+    <a href="training.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg><span>Training</span></a>
+    <a href="elearning.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/></svg><span>E-Learning</span></a>
+    <a href="audits.html"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg><span>Audits</span></a>
+    <a href="squire.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"/></svg><span>SQUIRE 2.0</span></a>
+    <a href="precise.html"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg><span>PRECISE</span></a>
+    <a href="https://www.acutemedicine.org.uk/research-new/" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/></svg><span>Research</span></a>
+  </div>
+</nav>
+
+
+
+<div class="page-layout">
+<main>
+<!-- ── QI ACROSS THE MDT ─────────────────────── -->
+<section id="mdt" class="sec">
+  <div class="sec-title">
+    <div class="title-icon"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/></svg></div>
+    QI Across the AMU Team
+  </div>
+  <p class="sec-subtitle">How quality improvement looks from every professional role — and why each perspective is essential to improvement that lasts</p>
+
+  <div class="tldr">
+  <div class="tldr-icon">
+    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+  </div>
+  <div class="tldr-body">
+    <h3>In one minute</h3>
+    <ul>
+        <li>Six AMU professions, six perspectives on improvement</li>
+        <li>Each card links to your profession's SAM Hub</li>
+        <li>Multi-professional teams produce more durable change</li>
+        <li>Portfolio evidence aligns to KSF, ARCP, HCPC, NMC, RPharmS</li>
+    </ul>
+  </div>
+</div>
+
+
+  <div class="mp-banner">
+    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+    <div class="mp-banner-text">
+      <strong>SAM represents all professions working in Acute Medicine</strong>
+      <p>SAM membership, training programmes, and QI resources are open to every professional who works in or leads an acute medical unit — not just doctors. The SAM-QI Committee explicitly includes nursing, ACP, AHP, and pharmacy perspectives in all its work.</p>
+    </div>
+    <div class="mp-banner-pills">
+      <span class="mp-pill">Nursing</span>
+      <span class="mp-pill">ACPs</span>
+      <span class="mp-pill">Pharmacy</span>
+      <span class="mp-pill">AHPs</span>
+      <span class="mp-pill">PAs</span>
+      <span class="mp-pill">Medicine</span>
+    </div>
+  </div>
+
+  <div class="prof-grid">
+
+    <!-- Nursing -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-nurse">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Nursing Staff</h4><span>Band 5–8 · Ward &amp; Specialist</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Nurses are at the operational heart of AMU quality — from early warning scores and ANTT standards to patient experience and discharge coordination. Many of the most impactful AMU improvement projects are nursing-led, and SAM's training programmes are explicitly designed to be accessible and relevant at every banding.</p>
+        <p>Nursing QI evidence can support KSF development, Band 7/8 job applications, and NMC revalidation as well as contributing to ward accreditation and CQC compliance.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical nursing-led QI areas</div>
+          <span class="prof-ex-tag">NEWS2 documentation</span>
+          <span class="prof-ex-tag">Sepsis Grab Bag</span>
+          <span class="prof-ex-tag">Patient falls</span>
+          <span class="prof-ex-tag">VTE assessment</span>
+          <span class="prof-ex-tag">Pressure injury prevention</span>
+          <span class="prof-ex-tag">Nutrition screening</span>
+          <span class="prof-ex-tag">Hand hygiene</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/nursing/" target="_blank" rel="noopener">SAM Nursing Hub →</a>
+      </div>
+    </div>
+
+    <!-- ACPs -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-acp">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+        </div>
+        <div><h4>Advanced Clinical Practitioners</h4><span>ACPs — all clinical backgrounds</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>ACPs in acute medicine span nursing, AHP, and pharmacy backgrounds and are increasingly central to AMU workforce models. The multi-professional credential of ACP practice makes them natural champions of cross-professional improvement work — leading projects that bridge the traditional doctor-nurse divide and demonstrating how the four pillars of advanced practice (clinical, leadership, education, research) align with structured QI.</p>
+        <p>ACP QI projects directly support portfolio evidence for credentialing and revalidation, and demonstrate the leadership pillar in practice.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical ACP-led QI areas</div>
+          <span class="prof-ex-tag">SDEC pathway</span>
+          <span class="prof-ex-tag">Ambulatory care referrals</span>
+          <span class="prof-ex-tag">ACS pathways</span>
+          <span class="prof-ex-tag">Prescribing safety</span>
+          <span class="prof-ex-tag">Rapid assessment models</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/advanced-clinical-practitioners/" target="_blank" rel="noopener">SAM ACP Hub →</a>
+      </div>
+    </div>
+
+    <!-- Doctors -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-doc">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Doctors</h4><span>Foundation · IMT · HST · Consultants · SAS</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Medical staff in acute medicine lead QI from foundation to consultant level, with structured QIPAT expectations at every HST ARCP. The curriculum requires not just participation but demonstrated leadership — designing, running, and reporting at least one complete improvement project. Consultant and SAS doctors are increasingly expected to sponsor and sustain QI programmes as well as run them, particularly as AMU clinical leads and quality governance leads.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical medically-led QI areas</div>
+          <span class="prof-ex-tag">Diagnostic pathways</span>
+          <span class="prof-ex-tag">Antibiotic stewardship</span>
+          <span class="prof-ex-tag">Frailty screening</span>
+          <span class="prof-ex-tag">Mortality review</span>
+          <span class="prof-ex-tag">SDEC criteria</span>
+          <span class="prof-ex-tag">Handover quality</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/trainee-hub/" target="_blank" rel="noopener">SAM Trainee Hub →</a>
+      </div>
+    </div>
+
+    <!-- Pharmacy -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-pharm">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Pharmacy</h4><span>Clinical Pharmacists · Technicians</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Clinical pharmacists embedded on AMUs are well positioned to lead medication safety QI — one of the highest-impact improvement domains in acute medicine. From medicines reconciliation on admission to antimicrobial stewardship, pharmacy-led QI directly reduces patient harm and informs prescribing safety programmes. Pharmacy involvement in multidisciplinary QI teams is a SAMBA Clinical Quality Indicator and is expected at ARCP for pharmacist prescribers.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical pharmacy-led QI areas</div>
+          <span class="prof-ex-tag">Medicines reconciliation</span>
+          <span class="prof-ex-tag">Antimicrobial stewardship</span>
+          <span class="prof-ex-tag">High-risk drug monitoring</span>
+          <span class="prof-ex-tag">Allergy documentation</span>
+          <span class="prof-ex-tag">TTA turnaround time</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/pharmacy/" target="_blank" rel="noopener">SAM Pharmacy Hub →</a>
+      </div>
+    </div>
+
+    <!-- AHPs -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-ahp">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+        </div>
+        <div><h4>Allied Health Professionals</h4><span>Physio · OT · SALT · Dietetics</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>AHPs are central to the AMU's ability to discharge patients safely and at the right time. Physiotherapists, occupational therapists, speech and language therapists, and dietitians each hold a unique view of the bottlenecks that delay safe discharge, and QI projects that involve AHPs consistently demonstrate better outcomes for length of stay, functional recovery, and readmission prevention than those that do not.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical AHP-led QI areas</div>
+          <span class="prof-ex-tag">Early discharge planning</span>
+          <span class="prof-ex-tag">Functional assessment</span>
+          <span class="prof-ex-tag">Falls prevention</span>
+          <span class="prof-ex-tag">Swallow screening</span>
+          <span class="prof-ex-tag">Malnutrition screening</span>
+          <span class="prof-ex-tag">7-day AHP cover</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/allied-health-professionals/" target="_blank" rel="noopener">SAM AHP Hub →</a>
+      </div>
+    </div>
+
+    <!-- PAs -->
+    <div class="prof-card">
+      <div class="prof-card-head">
+        <div class="prof-icon pi-pa">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+        </div>
+        <div><h4>Physician Associates</h4><span>PAs working in AMU</span></div>
+      </div>
+      <div class="prof-card-body">
+        <p>Physician associates working in acute medicine are an increasingly significant part of the AMU workforce, particularly in assessment and initial management of unselected medical admissions. PAs are well placed to lead QI projects that span the initial assessment period — clerking quality, documentation standards, early investigation ordering — and their QI work forms part of the portfolio evidence required for ongoing professional development.</p>
+        <div class="prof-examples">
+          <div class="ex-label">Typical PA-led QI areas</div>
+          <span class="prof-ex-tag">Clerking quality</span>
+          <span class="prof-ex-tag">Investigation ordering</span>
+          <span class="prof-ex-tag">Documentation standards</span>
+          <span class="prof-ex-tag">SDEC assessment</span>
+          <span class="prof-ex-tag">Escalation pathways</span>
+        </div>
+      </div>
+      <div class="prof-card-foot">
+        <a href="https://www.acutemedicine.org.uk/physician-associates/" target="_blank" rel="noopener">SAM PA Hub →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="intro-panel" style="border-left-color:var(--sam-green-mid)">
+    <p><strong>What makes multi-professional QI different?</strong> The most persistent problems on an AMU cannot be solved by one professional group alone. Delayed discharge is not a nursing problem or a medical problem — it is a system problem that requires physiotherapy, occupational therapy, social work, pharmacy, medicine, and nursing to all change their piece of the process at the same time. Driver diagrams and PDSA cycles are as powerful for a nursing team as for a registrar, and the data that matters — LOS, re-admission, patient experience — reflects the whole team's work, not any individual's.</p>
+    <p>SAM's QI training programmes actively recruit teams rather than individuals. A doctor-nurse-ACP trio from the same unit, or a nurse-pharmacist-OT group working on a shared discharge problem, is more likely to produce sustained change than individuals working in parallel. The SAM events page lists current cohort application details — teams are encouraged to apply together.</p>
+  </div>
+</section>
+
+
+<div class="next-nav">
+  <h4>Continue your journey</h4>
+  <div class="next-nav-grid">
+    <a href="index.html" class="next-card">
+      <div class="nc-label"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg>Related</div>
+      <h5>Back to overview</h5>
+      <p>See how all the pieces of the SAM QI offer fit together</p>
+    </a>
+    <a href="methodology.html" class="next-card next-primary">
+      <div class="nc-label">Next →</div>
+      <h5>Learn the methodology</h5>
+      <p>How QI actually works — three questions, PDSA cycles, and small-scale testing</p>
+    </a>
+  </div>
+</div>
+
+</main>
+<aside class="sidebar">
+
+  <div class="sb-box">
+    <div class="sb-head">QI &amp; Research</div>
+    <div class="sb-body">
+      <a href="#intro" class="sb-item active"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>Quality Improvement</a>
+      <a href="https://www.acutemedicine.org.uk/samba-new/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>SAMBA</a>
+      <a href="https://www.acutemedicine.org.uk/sampler/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/></svg>SAM-PLER</a>
+      <a href="https://www.acutemedicine.org.uk/sitrep/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm1 5a1 1 0 100 2h7a1 1 0 100-2H4z" clip-rule="evenodd"/></svg>SAM SitRep</a>
+      <a href="https://www.acutemedicine.org.uk/research-new/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>Research</a>
+      <a href="#mdt" class="sb-item" style="border-top:1px solid var(--sam-border)"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/></svg>All Professions</a>
+      <a href="#squire" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>SQUIRE 2.0 Framework</a>
+      <a href="#precise" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>PRECISE Framework</a>
+    </div>
+  </div>
+
+  <div class="sb-box">
+    <div class="sb-head">Your Professional Hub</div>
+    <div class="sb-body">
+      <a href="https://www.acutemedicine.org.uk/nursing/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>Nursing Hub</a>
+      <a href="https://www.acutemedicine.org.uk/advanced-clinical-practitioners/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>ACP Hub</a>
+      <a href="https://www.acutemedicine.org.uk/allied-health-professionals/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>Allied Health Professionals</a>
+      <a href="https://www.acutemedicine.org.uk/pharmacy/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>Pharmacy Hub</a>
+      <a href="https://www.acutemedicine.org.uk/physician-associates/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>Physician Associates</a>
+      <a href="https://www.acutemedicine.org.uk/trainee-hub/" target="_blank" rel="noopener" class="sb-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>Trainee Hub (Medicine)</a>
+    </div>
+  </div>
+
+  <div class="join-widget">
+    <h4>Join SAM Today</h4>
+    <p>Access QI resources, training, the Acute Medicine Journal, and connect with over 3,000 members across the UK.</p>
+    <a href="https://www.acutemedicine.org.uk/sam-membership/" target="_blank" rel="noopener" class="btn-join-widget">Become a Member</a>
+  </div>
+
+  <div class="sb-box">
+    <div class="sb-head">Upcoming Events</div>
+    <a href="https://www.acutemedicine.org.uk/sam-events/" target="_blank" rel="noopener" style="text-decoration:none">
+      <div class="event-item">
+        <div class="event-date">Apr–Jul 2026</div>
+        <div class="event-title">Acute Medics as Improvers — Corridor Care QI Collaborative</div>
+        <div class="event-loc">🌐 Online / Blended</div>
+      </div>
+    </a>
+    <a href="https://www.acutemedicine.org.uk/sam-events/" target="_blank" rel="noopener" style="text-decoration:none">
+      <div class="event-item">
+        <div class="event-date">30 Apr–1 May 2026</div>
+        <div class="event-title">SAMCardiff — Spring Meeting 2026</div>
+        <div class="event-loc">📍 Holland House Hotel, Cardiff</div>
+      </div>
+    </a>
+    <a href="https://www.acutemedicine.org.uk/sam-events/" target="_blank" rel="noopener" style="text-decoration:none">
+      <div class="event-item">
+        <div class="event-date">15 Jun 2026</div>
+        <div class="event-title">takeAIM Conference 2026</div>
+        <div class="event-loc">📍 Royal College of Physicians, Edinburgh</div>
+      </div>
+    </a>
+    <div style="padding:12px 16px">
+      <a href="https://www.acutemedicine.org.uk/sam-events/" target="_blank" rel="noopener" class="btn-join-sam" style="display:block;text-align:center;width:100%">All Events →</a>
+    </div>
+  </div>
+
+  <div class="sb-box">
+    <div class="sb-head">Key Publications</div>
+    <div class="sb-pub">
+      <a href="https://acutemedjournal.co.uk/developing-priorities-for-quality-improvement-in-acute-medicine-using-a-modified-delphi-methoda-consensus-process-hosted-by-the-society-for-acute-medicine-quality-improvement-committee-sam-qi/" target="_blank" rel="noopener">SAM-QI Delphi — QI Priorities in Acute Medicine (2022)</a>
+      <span>Kennedy A et al. · Acute Medicine Journal 21(2)</span>
+    </div>
+    <div class="sb-pub">
+      <a href="https://acutemedjournal.co.uk/" target="_blank" rel="noopener">SAMBA19 — Society for Acute Medicine Benchmarking Audit</a>
+      <span>Holland M et al. · Acute Medicine Journal 19(4)</span>
+    </div>
+    <div class="sb-pub">
+      <a href="https://acutemedjournal.co.uk/" target="_blank" rel="noopener">Quality: What does it mean in acute medicine and how do we measure it?</a>
+      <span>Subbe CP, Holland M et al. · Acute Medicine 2021</span>
+    </div>
+    <div style="padding:10px 16px">
+      <a href="https://acutemedjournal.co.uk/" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:700;color:var(--sam-green)">Browse Acute Medicine Journal →</a>
+    </div>
+  </div>
+
+  <div class="sb-box">
+    <div class="sb-head">Contact</div>
+    <div style="padding:14px 16px">
+      <p style="font-size:.8rem;color:var(--sam-body-text);line-height:1.65;margin-bottom:10px">
+        <strong style="color:var(--sam-heading)">Society for Acute Medicine</strong><br>
+        75 Bournemouth Road<br>Chandlers Ford, Eastleigh<br>SO53 3AP · England &amp; Wales
+      </p>
+      <a href="mailto:administrator@acutemedicine.org.uk" style="font-size:.8rem;color:var(--sam-blue)">administrator@acutemedicine.org.uk</a><br>
+      <a href="https://www.acutemedicine.org.uk/contact/" target="_blank" rel="noopener" style="font-size:.78rem;color:var(--sam-muted);display:inline-block;margin-top:6px">Online contact form →</a>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <!-- Real SAM logo in footer -->
+        <div class="footer-logo-wrap">
+          <img src="https://www.acutemedicine.org.uk/wp-content/uploads/SAM-LOGO-nbg.png"
+               alt="Society for Acute Medicine" style="height:56px;width:auto"
+               onerror="this.style.display='none';document.getElementById('flogo').style.display='flex'"/>
+          <div id="flogo" class="footer-logo-fallback" style="display:none">
+            <div class="footer-logo-icon">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M16 5L27 25H5L16 5Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" fill="none"/><line x1="16" y1="15" x2="16" y2="21" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="24" r="1.4" fill="#fff"/></svg>
+            </div>
+            <div class="footer-logo-text">
+              <span class="l1">Society for Acute Medicine</span>
+              <span class="l2">acutemedicine.org.uk</span>
+            </div>
+          </div>
+        </div>
+        <p>SAM is the national representative body for staff caring for medical patients in the acute hospital setting. Formed in 2000, SAM has played a pivotal role in the development of Acute Medicine as a specialty in its own right.</p>
+        <div class="social-row">
+          <a href="https://x.com/acutemedicine" target="_blank" rel="noopener" class="soc-btn" title="X / Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/society-for-acute-medicine/" target="_blank" rel="noopener" class="soc-btn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>QI &amp; Research</h5>
+        <ul>
+          <li><a href="https://www.acutemedicine.org.uk/quality-improvement-2/" target="_blank" rel="noopener">Quality Improvement</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/samba-new/" target="_blank" rel="noopener">SAMBA Benchmarking Audit</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/sampler/" target="_blank" rel="noopener">SAM-PLER</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/sitrep/" target="_blank" rel="noopener">SAM SitRep</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/research-new/" target="_blank" rel="noopener">Research</a></li>
+          <li><a href="https://acutemedjournal.co.uk/" target="_blank" rel="noopener">Acute Medicine Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>All Professions</h5>
+        <ul>
+          <li><a href="https://www.acutemedicine.org.uk/nursing/" target="_blank" rel="noopener">Nursing</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/advanced-clinical-practitioners/" target="_blank" rel="noopener">Advanced Clinical Practitioners</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/allied-health-professionals/" target="_blank" rel="noopener">Allied Health Professionals</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/pharmacy/" target="_blank" rel="noopener">Pharmacy</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/physician-associates/" target="_blank" rel="noopener">Physician Associates</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/trainee-hub/" target="_blank" rel="noopener">Trainee Hub (Medicine)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>About SAM</h5>
+        <ul>
+          <li><a href="https://www.acutemedicine.org.uk/about/" target="_blank" rel="noopener">About SAM</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/sam-membership/" target="_blank" rel="noopener">Membership</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/sam-council-members/" target="_blank" rel="noopener">Council Members</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/our-history/" target="_blank" rel="noopener">Our History</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/sam-events/" target="_blank" rel="noopener">Events</a></li>
+          <li><a href="https://www.acutemedicine.org.uk/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        Copyright © 2026 Society for Acute Medicine &nbsp;|&nbsp;
+        Company No. 07551254 · Registered in England and Wales &nbsp;|&nbsp;
+        <a href="https://www.acutemedicine.org.uk/privacy/" target="_blank" rel="noopener">Privacy</a> &nbsp;|&nbsp;
+        <a href="https://www.acutemedicine.org.uk/accessibility/" target="_blank" rel="noopener">Accessibility</a>
+      </div>
+      <a href="https://www.acutemedicine.org.uk/" target="_blank" rel="noopener" style="font-weight:700;color:var(--sam-green)">Visit acutemedicine.org.uk →</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
